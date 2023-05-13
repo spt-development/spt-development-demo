@@ -29,29 +29,35 @@ Building locally
 
 To build the project and run the integration tests, run the following Maven command:
 
-    $ mvn clean install
+```shell
+$ mvn clean install
+```
 
 Running the demo
 ================
 
 The best way to understand how things are working is to run and debug the integration tests. However, to run the 
 demo project from the command line, the easiest way is to use the Spring Boot plugin (the project currently requires
-JDK 8 or above).
+JDK 17 or above).
 
-    $ ./mvnw spring-boot:run
+```shell
+$ ./mvnw spring-boot:run
+```
 
 The REST API can then be exercised with cURL as follows:
 
-    curl -v -u bob:password123! --header "Content-Type: application/json" \
-        --request POST \
-        --data '{"title":"My Book","blurb":"My blurb","author":"Me","rrp":1000}' \
-        http://localhost:8080/api/v1.0/books
+```shell
+$ curl -v -u bob:password123! --header "Content-Type: application/json" \
+    --request POST \
+    --data '{"title":"My Book","blurb":"My blurb","author":"Me","rrp":1000}' \
+    http://localhost:8080/api/v1.0/books
 
-    curl -v -u bob:password123! --header "Content-Type: application/json" \
-        --request PUT \
-        --data '{"id":44, "title":"My Book - updated","blurb":"My blurb - updated","author":"Me","rrp":1000}' \
-        http://localhost:8080/api/v1.0/books/4
+$ curl -v -u bob:password123! --header "Content-Type: application/json" \
+    --request PUT \
+    --data '{"id":44, "title":"My Book - updated","blurb":"My blurb - updated","author":"Me","rrp":1000}' \
+    http://localhost:8080/api/v1.0/books/4
 
-    curl -v -u bob:password123! http://localhost:8080/api/v1.0/books
-    curl -v -u bob:password123! http://localhost:8080/api/v1.0/books/4
-    curl -v -u bob:password123! -X DELETE http://localhost:8080/api/v1.0/books/4
+$ curl -v -u bob:password123! http://localhost:8080/api/v1.0/books
+$ curl -v -u bob:password123! http://localhost:8080/api/v1.0/books/4
+$ curl -v -u bob:password123! -X DELETE http://localhost:8080/api/v1.0/books/4
+```
