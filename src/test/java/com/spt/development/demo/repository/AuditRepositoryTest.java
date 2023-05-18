@@ -9,6 +9,7 @@ import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.test.util.ReflectionTestUtils;
 
 import javax.sql.DataSource;
+import java.sql.Timestamp;
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
 import java.util.HashMap;
@@ -66,7 +67,7 @@ class AuditRepositoryTest {
                         new DefaultMapEntry<>("service_id", TestData.SERVICE_ID),
                         new DefaultMapEntry<>("service_version", TestData.SERVICE_VERSION),
                         new DefaultMapEntry<>("server_host_name", TestData.SERVICE_HOST_NAME),
-                        new DefaultMapEntry<>("created", TestData.CREATED)
+                        new DefaultMapEntry<>("created", new Timestamp(TestData.CREATED.toInstant().toEpochMilli()))
                 })
         );
     }

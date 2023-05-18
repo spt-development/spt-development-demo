@@ -18,7 +18,7 @@ through the use of the corresponding Spring Boot starters.
 * [spt-development/spt-development-cid-web](https://github.com/spt-development/spt-development-cid-web)
 * [spt-development/spt-development-logging-spring](https://github.com/spt-development/spt-development-logging-spring)
 
-The project provides a simple 'books' REST API backed by an in-memory H2 database, that shows how the use of these 
+The project provides a simple 'books' REST API backed by a postgres database (see below), that shows how the use of these 
 projects can be used to quickly and easily add production grade logging to your Spring Boot projects. The project also 
 integrates [spt-development/spt-development-audit-spring](https://github.com/spt-development/spt-development-audit-spring)
 demonstrating how to use simple annotations to capture audit information. The auditing is configured to use the 
@@ -33,31 +33,54 @@ To build the project and run the integration tests, run the following Maven comm
 $ mvn clean install
 ```
 
+The integration tests use [Testcontainers](https://www.testcontainers.org/) therefore docker must be installed on the
+machine the build is run on.
+
 Running the demo
 ================
 
-The best way to understand how things are working is to run and debug the integration tests. However, to run the 
-demo project from the command line, the easiest way is to use the Spring Boot plugin (the project currently requires
+The best way to understand how things are working is to run and debug the integration tests in your favourite IDE. However, 
+to run the demo project from the command line, the easiest way is to use the Spring Boot plugin (the project currently requires
 JDK 17 or above).
 
 ```shell
 $ ./mvnw spring-boot:run
 ```
 
-The REST API can then be exercised with cURL as follows:
+This will also use the [docker-compose.yml](./docker-compose.yml) file to start up postgres in a docker container
+through the user of Sping Boot's 
+[docker compose support](https://docs.spring.io/spring-boot/docs/3.1.0-SNAPSHOT/reference/html/features.html#features.docker-compose).
+
+Alternatively, and more akin to how you would run the application in production, you can run the application with java overriding the
+`spring.datasource.*` properties to point at an already running postgres database. The example below does this through the use of
+environment variables to point at a postgres database running in Docker.
+
+```shell
+$ SPRING_DATASOURCE_URL=jdbc:postgresql://127.0.0.1:56852/spt-recruitment-demo \
+  SPRING_DATASOURCE_USERNAME=postgres SPRING_DATASOURCE_PASSWORD=p@ssw0rd \
+  java -jar target/spt-development-demo-0.0.1-SNAPSHOT.jar 
+```
+
+Once the application is running, the REST API can then be exercised with cURL as follows:
 
 ```shell
 $ curl -v -u bob:password123! --header "Content-Type: application/json" \
     --request POST \
     --data '{"title":"My Book","blurb":"My blurb","author":"Me","rrp":1000}' \
     http://localhost:8080/api/v1.0/books
-
+```
+```shell
 $ curl -v -u bob:password123! --header "Content-Type: application/json" \
     --request PUT \
     --data '{"id":44, "title":"My Book - updated","blurb":"My blurb - updated","author":"Me","rrp":1000}' \
     http://localhost:8080/api/v1.0/books/4
-
+```
+```shell
 $ curl -v -u bob:password123! http://localhost:8080/api/v1.0/books
+```
+```shell
 $ curl -v -u bob:password123! http://localhost:8080/api/v1.0/books/4
+```
+```shell
 $ curl -v -u bob:password123! -X DELETE http://localhost:8080/api/v1.0/books/4
 ```

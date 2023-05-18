@@ -1,26 +1,13 @@
-package com.spt.development.demo.cucumber;
+package com.spt.development.demo.cucumber.steps;
 
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.spt.development.cid.CorrelationId;
-import com.spt.development.demo.cucumber.config.TestManagerConfig;
-import com.spt.development.demo.cucumber.util.DatabaseTestUtil;
 import com.spt.development.test.integration.HttpTestManager;
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
-import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Then;
-import io.cucumber.spring.CucumberContextConfiguration;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.web.server.LocalServerPort;
-import org.springframework.context.annotation.Import;
 
-import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.SQLException;
 import java.util.Map;
 import java.util.Optional;
 
@@ -28,12 +15,7 @@ import static com.spt.development.cid.web.filter.CorrelationIdFilter.CID_HEADER;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @Slf4j
-@SpringBootTest(
-        webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT
-)
-@CucumberContextConfiguration
-@Import(TestManagerConfig.class)
-public class SptDevelopmentDemoStepDef {
+public class RestApiSteps {
     private static final Gson GSON = new GsonBuilder().create();
 
     interface TestData {
@@ -67,35 +49,7 @@ public class SptDevelopmentDemoStepDef {
         }
     }
 
-    @LocalServerPort private int localServerPort;
-
-    @Autowired private DataSource dataSource;
     @Autowired private HttpTestManager httpTestManager;
-
-    @Before
-    public void setUp(Scenario scenario) {
-        LOG.info("Running scenario: {}", scenario.getName());
-
-        httpTestManager.init(localServerPort);
-
-        clearDatabase();
-
-        CorrelationId.set("integration-test-runner-cid");
-    }
-
-    private void clearDatabase() {
-        try (final Connection connection = dataSource.getConnection()) {
-            DatabaseTestUtil.clearDatabase(connection);
-        }
-        catch (SQLException ex) {
-            LOG.warn("Failed to clear database", ex);
-        }
-    }
-
-    @After
-    public void tearDown(Scenario scenario) {
-        LOG.info("Finishing scenario: '{}', with status: {}", scenario.getName(), scenario.getStatus());
-    }
 
     @Then("^the server will respond with a HTTP status of '(\\d+)'$")
     public void theServerWillRespondWithAHTTPStatusOf(int statusCode) {

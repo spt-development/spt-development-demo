@@ -1,4 +1,4 @@
-package com.spt.development.demo.cucumber;
+package com.spt.development.demo.cucumber.steps;
 
 import com.spt.development.demo.domain.Book;
 import com.spt.development.demo.repository.BookRepository;
@@ -10,13 +10,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-import static com.spt.development.demo.cucumber.SptDevelopmentDemoStepDef.getBookIdFromResponse;
+import static com.spt.development.demo.cucumber.steps.RestApiSteps.getBookIdFromResponse;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class SptDevelopmentDemoBookDatabaseStepDef {
+public class BookDatabaseSteps {
 
 
-    private interface TestData extends SptDevelopmentDemoStepDef.TestData {
+    private interface TestData extends RestApiSteps.TestData {
     }
 
     @Autowired private HttpTestManager httpTestManager;

@@ -1,4 +1,4 @@
-package com.spt.development.demo.cucumber;
+package com.spt.development.demo.cucumber.steps;
 
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
@@ -23,10 +23,10 @@ import static com.spt.development.cid.web.filter.CorrelationIdFilter.CID_HEADER;
 import static com.spt.development.test.integration.HttpTestManager.basicCredentialsProvider;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class SptDevelopmentDemoBooksApiStepDef {
+public class BooksApiSteps {
     private static final Gson GSON = new GsonBuilder().create();
 
-    private interface TestData extends SptDevelopmentDemoStepDef.TestData {
+    private interface TestData extends RestApiSteps.TestData {
     }
 
     @Autowired private HttpTestManager httpTestManager;
