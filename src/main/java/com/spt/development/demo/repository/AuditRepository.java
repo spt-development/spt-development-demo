@@ -9,6 +9,7 @@ import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
+import java.sql.Timestamp;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -42,7 +43,7 @@ public class AuditRepository extends JdbcDaoSupport {
                 new DefaultMapEntry<>("service_id", auditEvent.getServiceId()),
                 new DefaultMapEntry<>("service_version", auditEvent.getServiceVersion()),
                 new DefaultMapEntry<>("server_host_name", auditEvent.getServerHostName()),
-                new DefaultMapEntry<>("created", auditEvent.getCreated())
+                new DefaultMapEntry<>("created", new Timestamp(auditEvent.getCreated().toInstant().toEpochMilli()))
         });
 
         if (auditEvent.getId() != null) {

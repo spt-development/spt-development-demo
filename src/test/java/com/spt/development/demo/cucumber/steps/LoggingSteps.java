@@ -1,4 +1,4 @@
-package com.spt.development.demo.cucumber;
+package com.spt.development.demo.cucumber.steps;
 
 import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.Logger;
@@ -25,7 +25,7 @@ import static com.spt.development.cid.web.filter.MdcCorrelationIdFilter.MDC_CID_
 import static org.mockito.Mockito.atLeastOnce;
 import static org.mockito.Mockito.verify;
 
-public class SptDevelopmentDemoLoggingStepDef {
+public class LoggingSteps {
     @Value("${spt.cid.mdc.disabled:false}")
     private boolean mdcDisabled;
 

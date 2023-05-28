@@ -1,7 +1,9 @@
+ALTER DATABASE postgres SET timezone TO 'Universal';
+
 CREATE SCHEMA demo;
 
 CREATE TABLE demo.book (
-    book_id INT AUTO_INCREMENT PRIMARY KEY,
+    book_id SERIAL PRIMARY KEY,
     title   TEXT NOT NULL,
     blurb   TEXT NOT NULL,
     author  TEXT NOT NULL,
@@ -16,7 +18,7 @@ INSERT INTO demo.book (title, blurb, author, rrp) VALUES ('The Hitchhikers Guide
 CREATE SCHEMA audit;
 
 CREATE TABLE audit.event (
-    event_id         INT AUTO_INCREMENT NOT NULL,
+    event_id         SERIAL NOT NULL,
     type             VARCHAR(50) NOT NULL,
     sub_type         VARCHAR(50) NOT NULL,
     correlation_id   CHAR(36) NOT NULL,
