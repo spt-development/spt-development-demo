@@ -48,7 +48,7 @@ $ ./mvnw spring-boot:run
 ```
 
 This will also use the [docker-compose.yml](./docker-compose.yml) file to start up postgres in a docker container
-through the user of Sping Boot's 
+through the user of Spring Boot's 
 [docker compose support](https://docs.spring.io/spring-boot/docs/3.1.0-SNAPSHOT/reference/html/features.html#features.docker-compose).
 
 Alternatively, and more akin to how you would run the application in production, you can run the application with java overriding the
