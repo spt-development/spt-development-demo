@@ -1,0 +1,17 @@
+name: Latest Versions Check
+
+on: [pull_request]
+
+jobs:
+  versions:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up JDK 20
+        uses: actions/setup-java@v3
+        with:
+          java-version: '20'
+          distribution: 'temurin'
+      - run: ./mvnw clean versions:update-properties scm:check-local-modification -U -B

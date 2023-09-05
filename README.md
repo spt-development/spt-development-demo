@@ -30,11 +30,13 @@ Building locally
 To build the project and run the integration tests, run the following Maven command:
 
 ```shell
-$ mvn clean install
+$ ./mvnw clean install
 ```
 
 The integration tests use [Testcontainers](https://www.testcontainers.org/) therefore docker must be installed on the
 machine the build is run on.
+
+**NOTE** To update `mvnw` run `mvn wrapper:wrapper`.
 
 Running the demo
 ================

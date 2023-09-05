@@ -42,7 +42,7 @@ public class LifeCycleSteps {
     }
 
     private void clearDatabase() {
-        try (final Connection connection = dataSource.getConnection()) {
+        try (Connection connection = dataSource.getConnection()) {
             DatabaseTestUtil.clearDatabase(connection);
         }
         catch (SQLException ex) {

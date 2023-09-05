@@ -11,6 +11,7 @@ import org.springframework.boot.info.BuildProperties;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
+import java.net.InetAddress;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.OffsetDateTime;
@@ -32,7 +33,7 @@ import static org.springframework.boot.actuate.security.AuthenticationAuditListe
 public class AuditDatabaseSteps {
     private static final Gson GSON = new GsonBuilder().create();
 
-    private interface TestData extends RestApiSteps.TestData {
+    private static class TestData extends RestApiSteps.TestData {
     }
 
     @Value("${spring.application.name}") private String appName;
@@ -57,7 +58,7 @@ public class AuditDatabaseSteps {
                 loginAuditEvent.getDetails(), new MapStringObjectTypeToken().getType()
         );
         assertThat(details).containsExactlyEntriesOf(
-                Collections.singletonMap("details", Collections.singletonMap("remoteAddress", "127.0.0.1"))
+                Collections.singletonMap("details", Collections.singletonMap("remoteAddress", InetAddress.getLoopbackAddress().getHostAddress()))
         );
         assertCommonAuditEventFields(loginAuditEvent);
     }

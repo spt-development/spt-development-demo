@@ -26,7 +26,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class BooksApiSteps {
     private static final Gson GSON = new GsonBuilder().create();
 
-    private interface TestData extends RestApiSteps.TestData {
+    private static class TestData extends RestApiSteps.TestData {
     }
 
     @Autowired private HttpTestManager httpTestManager;
@@ -35,7 +35,7 @@ public class BooksApiSteps {
     @When("a new book is POSTed to the books REST API")
     public void aNewBookIsPOSTedToTheBooksRESTAPI() throws Throwable {
         httpTestManager.doPostRequest(
-                TestData.Api.USERNAME, TestData.Api.PASSWORD, TestData.ValidJob.RESOURCE, ContentType.APPLICATION_JSON, "/api/v1.0/books"
+            TestData.Api.USERNAME, TestData.Api.PASSWORD, RestApiSteps.TestData.ValidBook.RESOURCE, ContentType.APPLICATION_JSON, "/api/v1.0/books"
         );
     }
 
@@ -131,10 +131,10 @@ public class BooksApiSteps {
     private void assertThatResponseContainsValidBook(Long id) {
         final Map<String, Object> book = assertThatResponseContainsBook(id);
 
-        assertThat(book.get("title")).isEqualTo(TestData.ValidJob.TITLE);
-        assertThat(book.get("blurb")).isEqualTo(TestData.ValidJob.BLURB);
-        assertThat(book.get("author")).isEqualTo(TestData.ValidJob.AUTHOR);
-        assertThat(((Double)book.get("rrp")).intValue()).isEqualTo(TestData.ValidJob.RRP);
+        assertThat(book.get("title")).isEqualTo(RestApiSteps.TestData.ValidBook.TITLE);
+        assertThat(book.get("blurb")).isEqualTo(RestApiSteps.TestData.ValidBook.BLURB);
+        assertThat(book.get("author")).isEqualTo(RestApiSteps.TestData.ValidBook.AUTHOR);
+        assertThat(((Double)book.get("rrp")).intValue()).isEqualTo(RestApiSteps.TestData.ValidBook.RRP);
     }
 
     private void assertThatResponseContainsAListOfBooks(Long id) {
