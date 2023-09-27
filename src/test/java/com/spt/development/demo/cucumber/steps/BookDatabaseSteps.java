@@ -14,9 +14,7 @@ import static com.spt.development.demo.cucumber.steps.RestApiSteps.getBookIdFrom
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class BookDatabaseSteps {
-
-
-    private interface TestData extends RestApiSteps.TestData {
+    private static class TestData extends RestApiSteps.TestData {
     }
 
     @Autowired private HttpTestManager httpTestManager;
@@ -26,10 +24,10 @@ public class BookDatabaseSteps {
     public void aBookExistsInTheDatabase() {
         bookRepository.create(
                 Book.builder()
-                        .title(TestData.ValidJob.TITLE)
-                        .blurb(TestData.ValidJob.BLURB)
-                        .author(TestData.ValidJob.AUTHOR)
-                        .rrp(TestData.ValidJob.RRP)
+                        .title(RestApiSteps.TestData.ValidBook.TITLE)
+                        .blurb(RestApiSteps.TestData.ValidBook.BLURB)
+                        .author(RestApiSteps.TestData.ValidBook.AUTHOR)
+                        .rrp(RestApiSteps.TestData.ValidBook.RRP)
                         .build()
         );
     }
@@ -42,10 +40,10 @@ public class BookDatabaseSteps {
 
         assertThat(book).isNotNull();
         assertThat(book.getId()).isEqualTo(bookId);
-        assertThat(book.getTitle()).isEqualTo(TestData.ValidJob.TITLE);
-        assertThat(book.getBlurb()).isEqualTo(TestData.ValidJob.BLURB);
-        assertThat(book.getAuthor()).isEqualTo(TestData.ValidJob.AUTHOR);
-        assertThat(book.getRrp()).isEqualTo(TestData.ValidJob.RRP);
+        assertThat(book.getTitle()).isEqualTo(RestApiSteps.TestData.ValidBook.TITLE);
+        assertThat(book.getBlurb()).isEqualTo(RestApiSteps.TestData.ValidBook.BLURB);
+        assertThat(book.getAuthor()).isEqualTo(RestApiSteps.TestData.ValidBook.AUTHOR);
+        assertThat(book.getRrp()).isEqualTo(RestApiSteps.TestData.ValidBook.RRP);
     }
 
     @Then("the last created book will be updated in the database")

@@ -18,34 +18,34 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class RestApiSteps {
     private static final Gson GSON = new GsonBuilder().create();
 
-    interface TestData {
-        String CORRELATION_ID = "709ac6e1-8ace-422d-9421-b8d93f0c6505";
+    static class TestData {
+        static final String CORRELATION_ID = "709ac6e1-8ace-422d-9421-b8d93f0c6505";
 
-        interface Resource {
-            String ROOT = "/com/spt/development/demo/cucumber/requests/";
+        static class Resource {
+            static final String ROOT = "/com/spt/development/demo/cucumber/requests/";
         }
 
-        interface Api {
-            String USERNAME = "bob";
-            String PASSWORD = "password123!";
+        static class Api {
+            static final String USERNAME = "bob";
+            static final String PASSWORD = "password123!";
         }
 
-        interface ValidJob {
-            String TITLE = "The Hitchhikers Guide to the Galaxy";
-            String BLURB = "The Hitchhikers Guide to the Galaxy', 'One Thursday lunchtime the Earth gets unexpectedly demolished to make way for a new hyperspace bypass.";
-            String AUTHOR = "Douglas Adams";
-            int RRP = 699;
+        static class ValidBook {
+            static final String TITLE = "The Hitchhikers Guide to the Galaxy";
+            static final String BLURB = "The Hitchhikers Guide to the Galaxy', 'One Thursday lunchtime the Earth gets unexpectedly demolished to make way for a new hyperspace bypass.";
+            static final String AUTHOR = "Douglas Adams";
+            static final int RRP = 699;
 
-            String RESOURCE = Resource.ROOT + "valid-book.json";
+            static final String RESOURCE = Resource.ROOT + "valid-book.json";
         }
 
-        interface UpdatedJob {
-            String TITLE = ValidJob.TITLE + " (updated)";
-            String BLURB = ValidJob.BLURB + " (updated)";
-            String AUTHOR = ValidJob.AUTHOR + " (updated)";
-            int RRP = ValidJob.RRP + 100;
+        static class UpdatedJob {
+            static final String TITLE = ValidBook.TITLE + " (updated)";
+            static final String BLURB = ValidBook.BLURB + " (updated)";
+            static final String AUTHOR = ValidBook.AUTHOR + " (updated)";
+            static final int RRP = ValidBook.RRP + 100;
 
-            String RESOURCE = Resource.ROOT + "updated-book.json";
+            static final String RESOURCE = Resource.ROOT + "updated-book.json";
         }
     }
 
