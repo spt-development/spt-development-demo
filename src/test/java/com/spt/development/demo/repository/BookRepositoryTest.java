@@ -25,6 +25,7 @@ class BookRepositoryTest {
 
     private BookRepository createRepository(BookRepositoryArgs args) {
         final BookRepository repository = new BookRepository(args.dataSource);
+        repository.init();
 
         ReflectionTestUtils.setField(repository, "simpleJdbcInsert", args.simpleJdbcInsert);
 
