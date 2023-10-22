@@ -34,7 +34,6 @@
         <!-- SPT Specific rules -->
 
         <!-- SPT Custom -->
-
         <module name="MatchXpath">
             <property name="query" value="//VARIABLE_DEF/TYPE/IDENT[@text='var']"/>
             <message key="matchxpath.match" value="The `var` keyword should be avoided to keep the code easier to understand"/>
