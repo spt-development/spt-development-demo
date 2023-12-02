@@ -1,13 +1,9 @@
 spring:
   application:
     name: SPT Development Demo
-  artemis:
-    mode: embedded
-  datasource:
-    url: jdbc:postgresql://SET_ME
-    driverClassName: org.postgresql.Driver
-    username: SET_ME
-    password: SET_ME
+  threads:
+    virtual:
+      enabled: true
 
 logging:
   pattern:

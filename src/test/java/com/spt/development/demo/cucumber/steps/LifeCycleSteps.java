@@ -16,6 +16,7 @@ import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import static com.spt.development.demo.cucumber.SpringConfiguration.activeMq;
 import static com.spt.development.demo.cucumber.SpringConfiguration.postgresDB;
 
 @Slf4j
@@ -27,6 +28,7 @@ public class LifeCycleSteps {
 
     @BeforeAll
     public static void fixtureSetUp() {
+        activeMq.start();
         postgresDB.start();
     }
 

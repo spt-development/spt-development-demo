@@ -2,10 +2,15 @@ version: '3.7'
 
 services:
   db:
-    image: postgres:15.3
+    image: postgres:16.1
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: p@ssw0rd
       POSTGRES_DB: spt-recruitment-demo
     ports:
       - "5432"
+
+  activemq:
+    image: symptoma/activemq:5.18.3
+    ports:
+      - "61616"

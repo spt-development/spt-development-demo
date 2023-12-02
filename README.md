@@ -49,17 +49,18 @@ JDK 17 or above).
 $ ./mvnw spring-boot:run
 ```
 
-This will also use the [docker-compose.yml](./docker-compose.yml) file to start up postgres in a docker container
+This will also use the [docker-compose.yml](./docker-compose.yml) file to start up postgres and ActiveMQ in docker containers
 through the user of Spring Boot's 
-[docker compose support](https://docs.spring.io/spring-boot/docs/3.1.0-SNAPSHOT/reference/html/features.html#features.docker-compose).
+[docker compose support](https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.docker-compose).
 
 Alternatively, and more akin to how you would run the application in production, you can run the application with java overriding the
-`spring.datasource.*` properties to point at an already running postgres database. The example below does this through the use of
-environment variables to point at a postgres database running in Docker.
+`spring.datasource.*` and `spring.activemq.*` properties to point at an already running postgres database. The example below does this 
+through the use of environment variables to point at a postgres database running in Docker.
 
 ```shell
-$ SPRING_DATASOURCE_URL=jdbc:postgresql://127.0.0.1:56852/spt-recruitment-demo \
+$ SPRING_DATASOURCE_URL=jdbc:postgresql://127.0.0.1:59314/spt-recruitment-demo \
   SPRING_DATASOURCE_USERNAME=postgres SPRING_DATASOURCE_PASSWORD=p@ssw0rd \
+  SPRING_ACTIVEMQ_BROKER_URL=tcp://localhost:59313 \
   java -jar target/spt-development-demo-0.0.1-SNAPSHOT.jar 
 ```
 
