@@ -1,8 +1,8 @@
 package com.spt.development.demo.cucumber.steps;
 
-import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 import com.spt.development.test.integration.HttpTestManager;
 import io.cucumber.java.en.Then;
 import lombok.extern.slf4j.Slf4j;
