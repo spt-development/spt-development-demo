@@ -46,16 +46,30 @@
         <Bug pattern="EI_EXPOSE_REP2" />
     </Match>
 
-    <!-- Assignment of library spring bean, no workaround to avoid warning -->
+    <!-- Assignment of repository that is technically mutable, therefore no sensible workaround to avoid warning -->
     <Match>
         <Class name="com.spt.development.demo.repository.AuditRepository" />
         <Method name="&lt;init&gt;"/>
         <Bug pattern="EI_EXPOSE_REP2" />
     </Match>
 
-    <!-- Assignment of library spring bean, no workaround to avoid warning -->
+    <!-- Assignment of repository that is technically mutable, therefore no sensible workaround to avoid warning -->
     <Match>
         <Class name="com.spt.development.demo.repository.BookRepository" />
+        <Method name="&lt;init&gt;"/>
+        <Bug pattern="EI_EXPOSE_REP2" />
+    </Match>
+
+    <!-- Assignment of library spring bean, no workaround to avoid warning -->
+    <Match>
+        <Class name="com.spt.development.demo.dao.AuditDao" />
+        <Method name="&lt;init&gt;"/>
+        <Bug pattern="EI_EXPOSE_REP2" />
+    </Match>
+
+    <!-- Assignment of library spring bean, no workaround to avoid warning -->
+    <Match>
+        <Class name="com.spt.development.demo.dao.BookDao" />
         <Method name="&lt;init&gt;"/>
         <Bug pattern="EI_EXPOSE_REP2" />
     </Match>

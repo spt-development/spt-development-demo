@@ -15,7 +15,7 @@ import org.testcontainers.utility.DockerImageName;
 @CucumberContextConfiguration
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class SpringConfiguration {
-    private static final String POSTGRES_TAG = "16.1";
+    private static final String POSTGRES_TAG = "16.2";
 
     // This is the image that Spring Boot provides ServiceConnection support for:
     // https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#features.docker-compose.service-connections

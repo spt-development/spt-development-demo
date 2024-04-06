@@ -16,6 +16,9 @@ spt:
   cid:
     web:
       use-request-header: true
+  logging:
+    dao-support:
+      enabled: true
 
 ---
 

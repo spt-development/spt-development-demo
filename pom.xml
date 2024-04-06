@@ -35,7 +35,7 @@
 		<spt-development-audit-spring-boot.version>3.2.4</spt-development-audit-spring-boot.version>
 		<spt-development-cid-jms-spring-boot.version>3.2.4</spt-development-cid-jms-spring-boot.version>
 		<spt-development-cid-web-spring-boot.version>3.2.4</spt-development-cid-web-spring-boot.version>
-		<spt-development-logging-spring-boot.version>3.2.4</spt-development-logging-spring-boot.version>
+		<spt-development-logging-spring-boot.version>3.2.5-SNAPSHOT</spt-development-logging-spring-boot.version>
 
 		<!-- Test dependency versions -->
 		<awaitility.version>4.2.1</awaitility.version>
