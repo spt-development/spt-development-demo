@@ -15,7 +15,7 @@ import static org.mockito.Mockito.when;
 import static org.springframework.boot.actuate.security.AuthenticationAuditListener.AUTHENTICATION_SUCCESS;
 
 class AuditEventListenerTest {
-    private static class TestData {
+    private static final class TestData {
         static final String APP_NAME = "Test app name";
         static final String CORRELATION_ID = "443debaf-1a0b-4d60-8118-e458b75e24ff";
     }
@@ -48,7 +48,7 @@ class AuditEventListenerTest {
         return new AuditEventListener(args.appName, args.buildProperties, args.auditEventWriter);
     }
 
-    private static class AuditEventListenerArgs {
+    private static final class AuditEventListenerArgs {
         String appName = TestData.APP_NAME;
         BuildProperties buildProperties = Mockito.mock(BuildProperties.class);
         AuditEventWriter auditEventWriter = Mockito.mock(AuditEventWriter.class);

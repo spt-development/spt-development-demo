@@ -2,7 +2,7 @@ package com.spt.development.demo.cucumber.steps;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
+import com.spt.development.demo.cucumber.util.MapStringObjectTypeToken;
 import com.spt.development.test.integration.HttpTestManager;
 import io.cucumber.java.en.Then;
 import lombok.extern.slf4j.Slf4j;
@@ -75,9 +75,5 @@ public class RestApiSteps {
                 httpTestManager.getResponseBody(), new MapStringObjectTypeToken().getType()
         );
         return Double.valueOf(book.get("id").toString()).longValue();
-    }
-
-    public static class MapStringObjectTypeToken extends TypeToken<Map<String,Object>> {
-        static final long serialVersionUID = 1L;
     }
 }

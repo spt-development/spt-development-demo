@@ -26,7 +26,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class BooksApiSteps {
     private static final Gson GSON = new GsonBuilder().create();
 
-    private static class TestData extends RestApiSteps.TestData {
+    private static final class TestData extends RestApiSteps.TestData {
     }
 
     @Autowired private HttpTestManager httpTestManager;

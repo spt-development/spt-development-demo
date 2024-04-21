@@ -32,7 +32,7 @@ class BookDaoTest {
         return dao;
     }
 
-    private static class BookDaoArgs {
+    private static final class BookDaoArgs {
         DataSource dataSource = Mockito.mock(DataSource.class);
         SimpleJdbcInsert simpleJdbcInsert = Mockito.mock(SimpleJdbcInsert.class);
     }

@@ -20,7 +20,7 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 class AuditDaoTest {
-    private static class TestData {
+    private static final class TestData {
         static final String TYPE = "test-type";
         static final String SUB_TYPE = "TEST_SUB_TYPE";
         static final String CORRELATION_ID = "06696e2a-c587-475f-a6ad-cbe66094f7d5";
@@ -95,7 +95,7 @@ class AuditDaoTest {
         return dao;
     }
 
-    private static class AuditDaoArgs {
+    private static final class AuditDaoArgs {
         DataSource dataSource = Mockito.mock(DataSource.class);
         SimpleJdbcInsert simpleJdbcInsert = Mockito.mock(SimpleJdbcInsert.class);
     }

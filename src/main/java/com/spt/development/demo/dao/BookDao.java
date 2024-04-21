@@ -99,7 +99,7 @@ public class BookDao extends JdbcDaoSupport {
         );
     }
 
-    private static class BookRowMapper implements RowMapper<Book> {
+    private static final class BookRowMapper implements RowMapper<Book> {
 
         @Override
         public Book mapRow(ResultSet rs, int rowNum) throws SQLException {
