@@ -23,7 +23,8 @@ import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import static com.spt.development.cid.web.filter.CorrelationIdFilter.CID_HEADER;
-import static com.spt.development.demo.cucumber.steps.RestApiSteps.MapStringObjectTypeToken;
+
+import com.spt.development.demo.cucumber.util.MapStringObjectTypeToken;
 import static com.spt.development.demo.cucumber.steps.RestApiSteps.getBookIdFromResponse;
 import static com.spt.development.demo.util.Constants.Auditing;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -33,7 +34,7 @@ import static org.springframework.boot.actuate.security.AuthenticationAuditListe
 public class AuditDatabaseSteps {
     private static final Gson GSON = new GsonBuilder().create();
 
-    private static class TestData extends RestApiSteps.TestData {
+    private static final class TestData extends RestApiSteps.TestData {
     }
 
     @Value("${spring.application.name}") private String appName;
@@ -110,7 +111,7 @@ public class AuditDatabaseSteps {
         assertThat(auditEvent.getCreated()).isNotNull();
     }
 
-    private static class AuditEventMapper implements RowMapper<AuditEvent> {
+    private static final class AuditEventMapper implements RowMapper<AuditEvent> {
         @Override
         public AuditEvent mapRow(ResultSet rs, int rowNum) throws SQLException {
             return AuditEvent.builder()

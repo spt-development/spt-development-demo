@@ -14,7 +14,7 @@ import static com.spt.development.demo.cucumber.steps.RestApiSteps.getBookIdFrom
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class BookDatabaseSteps {
-    private static class TestData extends RestApiSteps.TestData {
+    private static final class TestData extends RestApiSteps.TestData {
     }
 
     @Autowired private HttpTestManager httpTestManager;
