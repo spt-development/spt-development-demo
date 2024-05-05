@@ -14,62 +14,62 @@
 
     <!-- Package containing controllers therefore by definition will be flagged as 'Spring Endpoints' -->
     <Match>
-        <Package name="com.spt.development.demo.mvc.controller" />
+        <Package name="com.spt.development.demo.infrastructure.adapter.rest.controller" />
         <Bug pattern="SPRING_ENDPOINT" />
     </Match>
 
     <!-- Hardcoded password is fine for a demo project *only* -->
     <Match>
-        <Class name="com.spt.development.demo.config.SpringSecurityConfig" />
+        <Class name="com.spt.development.demo.infrastructure.config.SpringSecurityConfig" />
         <Method name="userDetailsService"/>
         <Bug pattern="HARD_CODE_PASSWORD" />
     </Match>
 
     <!-- Assignment of library spring bean, no workaround to avoid warning -->
     <Match>
-        <Class name="com.spt.development.demo.auditing.AuditEventListener" />
+        <Class name="com.spt.development.demo.infrastructure.adapter.auditing.AuditEventListener" />
         <Method name="&lt;init&gt;"/>
         <Bug pattern="EI_EXPOSE_REP2" />
     </Match>
 
     <!-- Assignment of repository that is technically mutable, therefore no sensible workaround to avoid warning -->
     <Match>
-        <Class name="com.spt.development.demo.jms.AuditListener" />
+        <Class name="com.spt.development.demo.infrastructure.adapter.jms.AuditListener" />
         <Method name="&lt;init&gt;"/>
         <Bug pattern="EI_EXPOSE_REP2" />
     </Match>
 
     <!-- Assignment of repository that is technically mutable, therefore no sensible workaround to avoid warning -->
     <Match>
-        <Class name="com.spt.development.demo.service.BookService" />
+        <Class name="com.spt.development.demo.core.usecase.book.ManageBooksUseCase" />
         <Method name="&lt;init&gt;"/>
         <Bug pattern="EI_EXPOSE_REP2" />
     </Match>
 
     <!-- Assignment of repository that is technically mutable, therefore no sensible workaround to avoid warning -->
     <Match>
-        <Class name="com.spt.development.demo.repository.AuditRepository" />
+        <Class name="com.spt.development.demo.infrastructure.adapter.db.repository.AuditRepository" />
         <Method name="&lt;init&gt;"/>
         <Bug pattern="EI_EXPOSE_REP2" />
     </Match>
 
     <!-- Assignment of repository that is technically mutable, therefore no sensible workaround to avoid warning -->
     <Match>
-        <Class name="com.spt.development.demo.repository.BookRepository" />
+        <Class name="com.spt.development.demo.infrastructure.adapter.db.repository.BookRepository" />
         <Method name="&lt;init&gt;"/>
         <Bug pattern="EI_EXPOSE_REP2" />
     </Match>
 
     <!-- Assignment of library spring bean, no workaround to avoid warning -->
     <Match>
-        <Class name="com.spt.development.demo.dao.AuditDao" />
+        <Class name="com.spt.development.demo.infrastructure.adapter.db.dao.AuditDao" />
         <Method name="&lt;init&gt;"/>
         <Bug pattern="EI_EXPOSE_REP2" />
     </Match>
 
     <!-- Assignment of library spring bean, no workaround to avoid warning -->
     <Match>
-        <Class name="com.spt.development.demo.dao.BookDao" />
+        <Class name="com.spt.development.demo.infrastructure.adapter.db.dao.BookDao" />
         <Method name="&lt;init&gt;"/>
         <Bug pattern="EI_EXPOSE_REP2" />
     </Match>
