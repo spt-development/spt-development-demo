@@ -26,7 +26,7 @@ import static com.spt.development.cid.web.filter.CorrelationIdFilter.CID_HEADER;
 
 import com.spt.development.demo.cucumber.util.MapStringObjectTypeToken;
 import static com.spt.development.demo.cucumber.steps.RestApiSteps.getBookIdFromResponse;
-import static com.spt.development.demo.util.Constants.Auditing;
+import static com.spt.development.demo.infrastructure.util.Constants.Auditing;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.awaitility.Awaitility.await;
 import static org.springframework.boot.actuate.security.AuthenticationAuditListener.AUTHENTICATION_SUCCESS;
