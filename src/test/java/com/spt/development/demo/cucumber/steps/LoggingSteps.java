@@ -59,12 +59,12 @@ public class LoggingSteps {
         final String correlationId = httpTestManager.getResponseHeaderValue(CID_HEADER).get();
 
         assertThatMessageIsLogged(Level.INFO, correlationId, "BookController.create(");
-        assertThatMessageIsLogged(Level.DEBUG, correlationId, "BookService.create(");
+        assertThatMessageIsLogged(Level.DEBUG, correlationId, "ManageBooksUseCase.create(");
         assertThatMessageIsLogged(Level.DEBUG, correlationId, "BookRepository.create(");
         assertThatMessageIsLogged(Level.DEBUG, correlationId, "BookDao.create(");
         assertThatMessageIsLogged(Level.TRACE, correlationId, "BookDao.create Returned: Book");
         assertThatMessageIsLogged(Level.TRACE, correlationId, "BookRepository.create Returned: Book");
-        assertThatMessageIsLogged(Level.TRACE, correlationId, "BookService.create Returned: Book");
+        assertThatMessageIsLogged(Level.TRACE, correlationId, "ManageBooksUseCase.create Returned: Book");
         assertThatMessageIsLogged(Level.TRACE, correlationId, "BookController.create Returned: <201");
     }
 
@@ -73,12 +73,12 @@ public class LoggingSteps {
         final String correlationId = httpTestManager.getResponseHeaderValue(CID_HEADER).get();
 
         assertThatMessageIsLogged(Level.INFO, correlationId, "BookController.read(");
-        assertThatMessageIsLogged(Level.DEBUG, correlationId, "BookService.read(");
+        assertThatMessageIsLogged(Level.DEBUG, correlationId, "ManageBooksUseCase.read(");
         assertThatMessageIsLogged(Level.DEBUG, correlationId, "BookRepository.read(");
         assertThatMessageIsLogged(Level.DEBUG, correlationId, "BookDao.read(");
         assertThatMessageIsLogged(Level.TRACE, correlationId, "BookDao.read Returned: Optional[Book");
         assertThatMessageIsLogged(Level.TRACE, correlationId, "BookRepository.read Returned: Optional[Book");
-        assertThatMessageIsLogged(Level.TRACE, correlationId, "BookService.read Returned: Optional[Book");
+        assertThatMessageIsLogged(Level.TRACE, correlationId, "ManageBooksUseCase.read Returned: Optional[Book");
         assertThatMessageIsLogged(Level.TRACE, correlationId, "BookController.read Returned: <200");
     }
 
@@ -87,12 +87,12 @@ public class LoggingSteps {
         final String correlationId = httpTestManager.getResponseHeaderValue(CID_HEADER).get();
 
         assertThatMessageIsLogged(Level.INFO, correlationId, "BookController.read(");
-        assertThatMessageIsLogged(Level.DEBUG, correlationId, "BookService.read(");
+        assertThatMessageIsLogged(Level.DEBUG, correlationId, "ManageBooksUseCase.read(");
         assertThatMessageIsLogged(Level.DEBUG, correlationId, "BookRepository.read(");
         assertThatMessageIsLogged(Level.DEBUG, correlationId, "BookDao.read(");
         assertThatMessageIsLogged(Level.TRACE, correlationId, "BookDao.read Returned: Optional.empty");
         assertThatMessageIsLogged(Level.TRACE, correlationId, "BookRepository.read Returned: Optional.empty");
-        assertThatMessageIsLogged(Level.TRACE, correlationId, "BookService.read Returned: Optional.empty");
+        assertThatMessageIsLogged(Level.TRACE, correlationId, "ManageBooksUseCase.read Returned: Optional.empty");
         assertThatMessageIsLogged(Level.TRACE, correlationId, "BookController.read Returned: <404");
     }
 
@@ -101,12 +101,12 @@ public class LoggingSteps {
         final String correlationId = httpTestManager.getResponseHeaderValue(CID_HEADER).get();
 
         assertThatMessageIsLogged(Level.INFO, correlationId, "BookController.readAll(");
-        assertThatMessageIsLogged(Level.DEBUG, correlationId, "BookService.readAll(");
+        assertThatMessageIsLogged(Level.DEBUG, correlationId, "ManageBooksUseCase.readAll(");
         assertThatMessageIsLogged(Level.DEBUG, correlationId, "BookRepository.readAll(");
         assertThatMessageIsLogged(Level.DEBUG, correlationId, "BookDao.readAll(");
         assertThatMessageIsLogged(Level.TRACE, correlationId, "BookDao.readAll Returned: [Book");
         assertThatMessageIsLogged(Level.TRACE, correlationId, "BookRepository.readAll Returned: [Book");
-        assertThatMessageIsLogged(Level.TRACE, correlationId, "BookService.readAll Returned: [Book");
+        assertThatMessageIsLogged(Level.TRACE, correlationId, "ManageBooksUseCase.readAll Returned: [Book");
         assertThatMessageIsLogged(Level.TRACE, correlationId, "BookController.readAll Returned: <200");
     }
 
@@ -115,12 +115,12 @@ public class LoggingSteps {
         final String correlationId = httpTestManager.getResponseHeaderValue(CID_HEADER).get();
 
         assertThatMessageIsLogged(Level.INFO, correlationId, "BookController.update(");
-        assertThatMessageIsLogged(Level.DEBUG, correlationId, "BookService.update(");
+        assertThatMessageIsLogged(Level.DEBUG, correlationId, "ManageBooksUseCase.update(");
         assertThatMessageIsLogged(Level.DEBUG, correlationId, "BookRepository.update(");
         assertThatMessageIsLogged(Level.DEBUG, correlationId, "BookDao.update(");
         assertThatMessageIsLogged(Level.TRACE, correlationId, "BookDao.update Returned: Optional[Book");
         assertThatMessageIsLogged(Level.TRACE, correlationId, "BookRepository.update Returned: Optional[Book");
-        assertThatMessageIsLogged(Level.TRACE, correlationId, "BookService.update Returned: Optional[Book");
+        assertThatMessageIsLogged(Level.TRACE, correlationId, "ManageBooksUseCase.update Returned: Optional[Book");
         assertThatMessageIsLogged(Level.TRACE, correlationId, "BookController.update Returned: <200");
     }
 
@@ -129,12 +129,12 @@ public class LoggingSteps {
         final String correlationId = httpTestManager.getResponseHeaderValue(CID_HEADER).get();
 
         assertThatMessageIsLogged(Level.INFO, correlationId, "BookController.update(");
-        assertThatMessageIsLogged(Level.DEBUG, correlationId, "BookService.update(");
+        assertThatMessageIsLogged(Level.DEBUG, correlationId, "ManageBooksUseCase.update(");
         assertThatMessageIsLogged(Level.DEBUG, correlationId, "BookRepository.update(");
         assertThatMessageIsLogged(Level.DEBUG, correlationId, "BookDao.update(");
         assertThatMessageIsLogged(Level.TRACE, correlationId, "BookDao.update Returned: Optional.empty");
         assertThatMessageIsLogged(Level.TRACE, correlationId, "BookRepository.update Returned: Optional.empty");
-        assertThatMessageIsLogged(Level.TRACE, correlationId, "BookService.update Returned: Optional.empty");
+        assertThatMessageIsLogged(Level.TRACE, correlationId, "ManageBooksUseCase.update Returned: Optional.empty");
         assertThatMessageIsLogged(Level.TRACE, correlationId, "BookController.update Returned: <404");
     }
 
@@ -143,12 +143,12 @@ public class LoggingSteps {
         final String correlationId = httpTestManager.getResponseHeaderValue(CID_HEADER).get();
 
         assertThatMessageIsLogged(Level.INFO, correlationId, "BookController.delete(");
-        assertThatMessageIsLogged(Level.DEBUG, correlationId, "BookService.delete(");
+        assertThatMessageIsLogged(Level.DEBUG, correlationId, "ManageBooksUseCase.delete(");
         assertThatMessageIsLogged(Level.DEBUG, correlationId, "BookRepository.delete(");
         assertThatMessageIsLogged(Level.DEBUG, correlationId, "BookDao.delete(");
         assertThatMessageIsLogged(Level.DEBUG, correlationId, "BookDao.delete - complete");
         assertThatMessageIsLogged(Level.DEBUG, correlationId, "BookRepository.delete - complete");
-        assertThatMessageIsLogged(Level.DEBUG, correlationId, "BookService.delete - complete");
+        assertThatMessageIsLogged(Level.DEBUG, correlationId, "ManageBooksUseCase.delete - complete");
         assertThatMessageIsLogged(Level.TRACE, correlationId, "BookController.delete Returned: <204");
     }
 
@@ -203,7 +203,7 @@ public class LoggingSteps {
                 .filter(correlationIdPredicate)
                 .filter(e -> e.getFormattedMessage().contains(message))
                 .findFirst()
-                .orElseThrow(NoSuchElementException::new);
+                .orElseThrow(() -> new NoSuchElementException(String.format("%s %s %s", logLevel, formattedCorrelationId, message)));
     }
 
     private List<ILoggingEvent> getLoggingEvents() {
