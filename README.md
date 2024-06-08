@@ -75,7 +75,7 @@ $ curl -v -u bob:password123! --header "Content-Type: application/json" \
 ```shell
 $ curl -v -u bob:password123! --header "Content-Type: application/json" \
     --request PUT \
-    --data '{"id":44, "title":"My Book - updated","blurb":"My blurb - updated","author":"Me","rrp":1000}' \
+    --data '{"id":4, "title":"My Book - updated","blurb":"My blurb - updated","author":"Me","rrp":1000}' \
     http://localhost:8080/api/v1.0/books/4
 ```
 ```shell
