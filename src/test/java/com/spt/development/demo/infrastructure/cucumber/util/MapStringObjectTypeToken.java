@@ -1,4 +1,4 @@
-package com.spt.development.demo.cucumber.util;
+package com.spt.development.demo.infrastructure.cucumber.util;
 
 import com.google.gson.reflect.TypeToken;
 

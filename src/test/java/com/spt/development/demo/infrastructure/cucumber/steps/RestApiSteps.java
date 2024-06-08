@@ -1,8 +1,8 @@
-package com.spt.development.demo.cucumber.steps;
+package com.spt.development.demo.infrastructure.cucumber.steps;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.spt.development.demo.cucumber.util.MapStringObjectTypeToken;
+import com.spt.development.demo.infrastructure.cucumber.util.MapStringObjectTypeToken;
 import com.spt.development.test.integration.HttpTestManager;
 import io.cucumber.java.en.Then;
 import lombok.extern.slf4j.Slf4j;

@@ -1,7 +1,7 @@
-package com.spt.development.demo.cucumber.steps;
+package com.spt.development.demo.infrastructure.cucumber.steps;
 
 import com.spt.development.cid.CorrelationId;
-import com.spt.development.demo.cucumber.util.DatabaseTestUtil;
+import com.spt.development.demo.infrastructure.cucumber.util.DatabaseTestUtil;
 import com.spt.development.test.integration.HttpTestManager;
 import io.cucumber.java.After;
 import io.cucumber.java.AfterAll;
@@ -16,8 +16,8 @@ import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import static com.spt.development.demo.cucumber.SpringConfiguration.activeMq;
-import static com.spt.development.demo.cucumber.SpringConfiguration.postgresDB;
+import static com.spt.development.demo.infrastructure.cucumber.SpringConfiguration.activeMq;
+import static com.spt.development.demo.infrastructure.cucumber.SpringConfiguration.postgresDB;
 
 @Slf4j
 public class LifeCycleSteps {

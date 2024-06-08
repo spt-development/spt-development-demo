@@ -1,4 +1,4 @@
-package com.spt.development.demo.cucumber.steps;
+package com.spt.development.demo.infrastructure.cucumber.steps;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

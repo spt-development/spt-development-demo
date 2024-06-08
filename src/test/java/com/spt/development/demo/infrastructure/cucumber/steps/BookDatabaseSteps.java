@@ -1,4 +1,4 @@
-package com.spt.development.demo.cucumber.steps;
+package com.spt.development.demo.infrastructure.cucumber.steps;
 
 import com.spt.development.demo.core.model.Book;
 import com.spt.development.demo.infrastructure.adapter.repository.BookRepository;
@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-import static com.spt.development.demo.cucumber.steps.RestApiSteps.getBookIdFromResponse;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class BookDatabaseSteps {
@@ -34,7 +33,7 @@ public class BookDatabaseSteps {
 
     @Then("the new book will be added to the database")
     public void theNewBookWillBeAddedToTheDatabase() {
-        final long bookId = getBookIdFromResponse(httpTestManager);
+        final long bookId = RestApiSteps.getBookIdFromResponse(httpTestManager);
 
         final Book book = bookRepository.read(bookId).orElseThrow(NoSuchElementException::new);
 
@@ -48,7 +47,7 @@ public class BookDatabaseSteps {
 
     @Then("the last created book will be updated in the database")
     public void theLastCreatedBookWillBeUpdatedInTheDatabase() {
-        final long bookId = getBookIdFromResponse(httpTestManager);
+        final long bookId = RestApiSteps.getBookIdFromResponse(httpTestManager);
 
         final Book book = bookRepository.read(bookId).orElseThrow(NoSuchElementException::new);
 

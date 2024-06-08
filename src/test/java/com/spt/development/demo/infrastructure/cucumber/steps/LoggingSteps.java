@@ -1,4 +1,4 @@
-package com.spt.development.demo.cucumber.steps;
+package com.spt.development.demo.infrastructure.cucumber.steps;
 
 import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.Logger;

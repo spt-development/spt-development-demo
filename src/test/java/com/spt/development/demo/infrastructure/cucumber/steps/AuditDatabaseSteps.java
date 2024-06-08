@@ -1,8 +1,9 @@
-package com.spt.development.demo.cucumber.steps;
+package com.spt.development.demo.infrastructure.cucumber.steps;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.spt.development.audit.spring.AuditEvent;
+import com.spt.development.demo.infrastructure.cucumber.util.MapStringObjectTypeToken;
 import com.spt.development.test.integration.HttpTestManager;
 import io.cucumber.java.en.Then;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,9 +24,7 @@ import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import static com.spt.development.cid.web.filter.CorrelationIdFilter.CID_HEADER;
-
-import com.spt.development.demo.cucumber.util.MapStringObjectTypeToken;
-import static com.spt.development.demo.cucumber.steps.RestApiSteps.getBookIdFromResponse;
+import static com.spt.development.demo.infrastructure.cucumber.steps.RestApiSteps.getBookIdFromResponse;
 import static com.spt.development.demo.infrastructure.util.Constants.Auditing;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.awaitility.Awaitility.await;

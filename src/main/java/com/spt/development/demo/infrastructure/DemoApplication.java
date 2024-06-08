@@ -1,4 +1,4 @@
-package com.spt.development.demo;
+package com.spt.development.demo.infrastructure;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

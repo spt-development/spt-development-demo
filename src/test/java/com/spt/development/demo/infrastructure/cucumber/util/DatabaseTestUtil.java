@@ -1,4 +1,4 @@
-package com.spt.development.demo.cucumber.util;
+package com.spt.development.demo.infrastructure.cucumber.util;
 
 import java.sql.Connection;
 import java.sql.SQLException;
