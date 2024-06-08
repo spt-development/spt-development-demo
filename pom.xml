@@ -636,7 +636,7 @@
 								</rule>
 							</rules>
 							<excludes>
-								<exclude>com/spt/development/demo/DemoApplication.class</exclude>
+								<exclude>com/spt/development/demo/infrastructure/DemoApplication.class</exclude>
 							</excludes>
 							<dataFile>${project.build.directory}/jacoco-output/merged.exec</dataFile>
 						</configuration>

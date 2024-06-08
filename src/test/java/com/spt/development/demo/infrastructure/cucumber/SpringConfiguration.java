@@ -1,6 +1,5 @@
 package com.spt.development.demo.infrastructure.cucumber;
 
-import com.spt.development.demo.infrastructure.DemoApplication;
 import com.spt.development.test.integration.HttpTestManager;
 import io.cucumber.spring.CucumberContextConfiguration;
 import io.cucumber.spring.CucumberTestContext;
@@ -14,7 +13,7 @@ import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.utility.DockerImageName;
 
 @CucumberContextConfiguration
-@SpringBootTest(classes = DemoApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class SpringConfiguration {
     private static final String POSTGRES_TAG = "16.3-alpine3.20";
 

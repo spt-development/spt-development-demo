@@ -22,7 +22,7 @@ public class RestApiSteps {
         static final String CORRELATION_ID = "709ac6e1-8ace-422d-9421-b8d93f0c6505";
 
         static class Resource {
-            static final String ROOT = "/com/spt/development/demo/cucumber/requests/";
+            static final String ROOT = "/com/spt/development/demo/infrastructure/cucumber/requests/";
         }
 
         static class Api {

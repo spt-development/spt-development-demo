@@ -1,6 +1,7 @@
 package com.spt.development.demo.infrastructure.cucumber.steps;
 
 import com.spt.development.cid.CorrelationId;
+import com.spt.development.demo.infrastructure.cucumber.SpringConfiguration;
 import com.spt.development.demo.infrastructure.cucumber.util.DatabaseTestUtil;
 import com.spt.development.test.integration.HttpTestManager;
 import io.cucumber.java.After;
@@ -16,9 +17,6 @@ import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import static com.spt.development.demo.infrastructure.cucumber.SpringConfiguration.activeMq;
-import static com.spt.development.demo.infrastructure.cucumber.SpringConfiguration.postgresDB;
-
 @Slf4j
 public class LifeCycleSteps {
     @LocalServerPort private int localServerPort;
@@ -28,8 +26,8 @@ public class LifeCycleSteps {
 
     @BeforeAll
     public static void fixtureSetUp() {
-        activeMq.start();
-        postgresDB.start();
+        SpringConfiguration.activeMq.start();
+        SpringConfiguration.postgresDB.start();
     }
 
     @Before
@@ -59,6 +57,6 @@ public class LifeCycleSteps {
 
     @AfterAll
     public static void fixtureTearDown() {
-        postgresDB.close();
+        SpringConfiguration.postgresDB.close();
     }
 }

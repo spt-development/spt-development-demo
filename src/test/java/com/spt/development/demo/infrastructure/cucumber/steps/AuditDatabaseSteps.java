@@ -24,7 +24,6 @@ import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import static com.spt.development.cid.web.filter.CorrelationIdFilter.CID_HEADER;
-import static com.spt.development.demo.infrastructure.cucumber.steps.RestApiSteps.getBookIdFromResponse;
 import static com.spt.development.demo.infrastructure.util.Constants.Auditing;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.awaitility.Awaitility.await;
@@ -65,7 +64,7 @@ public class AuditDatabaseSteps {
 
     @Then("a new book audit event will eventually be created")
     public void aNewBookAuditEventWillEventuallyBeCreated() {
-        final long bookId = getBookIdFromResponse(httpTestManager);
+        final long bookId = RestApiSteps.getBookIdFromResponse(httpTestManager);
         final String correlationId = httpTestManager.getResponseHeaderValue(CID_HEADER).get();
 
         final AuditEvent newBookAuditEvent =
