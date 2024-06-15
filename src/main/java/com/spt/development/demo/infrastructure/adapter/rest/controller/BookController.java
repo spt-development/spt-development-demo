@@ -1,7 +1,7 @@
 package com.spt.development.demo.infrastructure.adapter.rest.controller;
 
 import com.spt.development.demo.core.model.Book;
-import com.spt.development.demo.core.usecase.book.ManageBooksUseCase;
+import com.spt.development.demo.core.usecase.book.ManageBooksInputPort;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +20,7 @@ import java.util.List;
 @AllArgsConstructor
 @RequestMapping("api/v1.0/books")
 public class BookController {
-    private final ManageBooksUseCase manageBooksUseCase;
+    private final ManageBooksInputPort manageBooksUseCase;
 
     @PostMapping
     public ResponseEntity<Book> create(@RequestBody Book book) {

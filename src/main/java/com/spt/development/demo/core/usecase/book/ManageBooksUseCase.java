@@ -15,7 +15,7 @@ import java.util.Optional;
 @Immutable
 @Transactional
 @AllArgsConstructor
-public class ManageBooksUseCase {
+public class ManageBooksUseCase implements ManageBooksInputPort {
     private final BookPersistenceGatewayOutputPort bookPersistenceGatewayOutputPort;
 
     public Book create(@NonNull Book book) {
