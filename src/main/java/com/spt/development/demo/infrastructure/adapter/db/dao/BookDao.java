@@ -1,4 +1,4 @@
-package com.spt.development.demo.infrastructure.adapter.dao;
+package com.spt.development.demo.infrastructure.adapter.db.dao;
 
 import com.spt.development.demo.core.model.Book;
 import jakarta.annotation.PostConstruct;

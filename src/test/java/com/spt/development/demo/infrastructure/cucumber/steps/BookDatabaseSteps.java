@@ -1,7 +1,7 @@
 package com.spt.development.demo.infrastructure.cucumber.steps;
 
 import com.spt.development.demo.core.model.Book;
-import com.spt.development.demo.infrastructure.adapter.repository.BookRepository;
+import com.spt.development.demo.infrastructure.adapter.db.repository.BookRepository;
 import com.spt.development.test.integration.HttpTestManager;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;

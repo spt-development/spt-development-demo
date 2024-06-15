@@ -1,7 +1,7 @@
 package com.spt.development.demo.core.usecase.book;
 
 import com.spt.development.demo.core.model.Book;
-import com.spt.development.demo.infrastructure.adapter.repository.BookRepository;
+import com.spt.development.demo.core.port.persistence.BookPersistenceGatewayOutputPort;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.test.util.ReflectionTestUtils;
@@ -35,7 +35,7 @@ class ManageBooksUseCaseTest {
             .rrp(TestData.RRP)
             .build();
 
-        final Book result = createService().create(book);
+        final Book result = createUseCase().create(book);
 
         assertThat(result)
             .isNotSameAs(book)
@@ -49,7 +49,7 @@ class ManageBooksUseCaseTest {
 
     @Test
     void read_existingBookId_shouldReturnBook() {
-        final Optional<Book> result = createService().read(TestData.ID);
+        final Optional<Book> result = createUseCase().read(TestData.ID);
 
         assertThat(result).isPresent().contains(
             Book.builder()
@@ -64,7 +64,7 @@ class ManageBooksUseCaseTest {
 
     @Test
     void readAll_existingBooks_shouldReturnAllBooks() {
-        final List<Book> result = createService().readAll();
+        final List<Book> result = createUseCase().readAll();
 
         assertThat(result).containsExactly(
             Book.builder()
@@ -87,7 +87,7 @@ class ManageBooksUseCaseTest {
                               .rrp(TestData.RRP)
                               .build();
 
-        final Optional<Book> result = createService().update(TestData.ID, book);
+        final Optional<Book> result = createUseCase().update(TestData.ID, book);
 
         assertThat(result).isPresent().contains(
             Book.builder()
@@ -102,7 +102,7 @@ class ManageBooksUseCaseTest {
 
     @Test
     void update_differentIDs_shouldLogWarning() {
-        final ManageBooksUseCase target = createService();
+        final ManageBooksUseCase target = createUseCase();
 
         final Book book = Book.builder()
                               .id(TestData.ID + 1) // ID will be ignored
@@ -123,24 +123,24 @@ class ManageBooksUseCaseTest {
     void delete_existingId_shouldDelegateToRepository() {
         final BookServiceArgs args = new BookServiceArgs();
 
-        createService(args).delete(TestData.ID);
+        createUseCase(args).delete(TestData.ID);
 
-        verify(args.bookRepository).delete(TestData.ID);
+        verify(args.bookPersistenceGatewayOutputPort).delete(TestData.ID);
     }
 
-    private ManageBooksUseCase createService() {
-        return createService(new BookServiceArgs());
+    private ManageBooksUseCase createUseCase() {
+        return createUseCase(new BookServiceArgs());
     }
 
-    private ManageBooksUseCase createService(BookServiceArgs args) {
-        return new ManageBooksUseCase(args.bookRepository);
+    private ManageBooksUseCase createUseCase(BookServiceArgs args) {
+        return new ManageBooksUseCase(args.bookPersistenceGatewayOutputPort);
     }
 
     private static class BookServiceArgs {
-        BookRepository bookRepository = Mockito.mock(BookRepository.class);
+        BookPersistenceGatewayOutputPort bookPersistenceGatewayOutputPort = Mockito.mock(BookPersistenceGatewayOutputPort.class);
 
         BookServiceArgs() {
-            when(bookRepository.create(any())).thenAnswer(iom -> {
+            when(bookPersistenceGatewayOutputPort.create(any())).thenAnswer(iom -> {
                 final Book book = iom.getArgument(0);
 
                 if (book.getId() == null) {
@@ -157,10 +157,10 @@ class ManageBooksUseCaseTest {
                                   .rrp(TestData.RRP)
                                   .build();
 
-            when(bookRepository.read(TestData.ID)).thenReturn(Optional.of(book));
-            when(bookRepository.readAll()).thenReturn(List.of(book));
+            when(bookPersistenceGatewayOutputPort.read(TestData.ID)).thenReturn(Optional.of(book));
+            when(bookPersistenceGatewayOutputPort.readAll()).thenReturn(List.of(book));
 
-            when(bookRepository.update(any())).thenAnswer(iom -> {
+            when(bookPersistenceGatewayOutputPort.update(any())).thenAnswer(iom -> {
                 final Book updated = iom.getArgument(0);
 
                 if (updated.getId() == TestData.ID) {

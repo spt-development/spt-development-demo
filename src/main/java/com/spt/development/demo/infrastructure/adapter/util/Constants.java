@@ -1,4 +1,4 @@
-package com.spt.development.demo.infrastructure.util;
+package com.spt.development.demo.infrastructure.adapter.util;
 
 public final class Constants {
     private Constants() {}

@@ -1,51 +1,43 @@
 package com.spt.development.demo.core.usecase.book;
 
-import com.spt.development.audit.spring.Audited;
 import com.spt.development.demo.core.model.Book;
-import com.spt.development.demo.infrastructure.adapter.repository.BookRepository;
+import com.spt.development.demo.core.port.persistence.BookPersistenceGatewayOutputPort;
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.concurrent.Immutable;
 import java.util.List;
 import java.util.Optional;
 
-import static com.spt.development.demo.infrastructure.util.Constants.Auditing;
-
 @Slf4j
-@Service
 @Immutable
 @Transactional
 @AllArgsConstructor
 public class ManageBooksUseCase {
-    private final BookRepository bookRepository;
+    private final BookPersistenceGatewayOutputPort bookPersistenceGatewayOutputPort;
 
-    @Audited(type = Auditing.Type.BOOK, subType = Auditing.SubType.CREATED)
-    public @Audited.Id("id") Book create(@NonNull @Audited.Detail Book book) {
-        return bookRepository.create(book.toBuilder().id(null).build());
+    public Book create(@NonNull Book book) {
+        return bookPersistenceGatewayOutputPort.create(book.toBuilder().id(null).build());
     }
 
     public Optional<Book> read(long id) {
-        return bookRepository.read(id);
+        return bookPersistenceGatewayOutputPort.read(id);
     }
 
     public List<Book> readAll() {
-        return bookRepository.readAll();
+        return bookPersistenceGatewayOutputPort.readAll();
     }
 
-    @Audited(type = Auditing.Type.BOOK, subType = Auditing.SubType.UPDATED)
-    public Optional<Book> update(@Audited.Id long id, @NonNull @Audited.Detail Book book) {
+    public Optional<Book> update(long id, @NonNull Book book) {
         if (!Long.valueOf(id).equals(book.getId())) {
             LOG.warn("ID on book payload: {}, does not match ID in URL: {}. Using ID from URL", book.getId(), id);
         }
-        return bookRepository.update(book.toBuilder().id(id).build());
+        return bookPersistenceGatewayOutputPort.update(book.toBuilder().id(id).build());
     }
 
-    @Audited(type = Auditing.Type.BOOK, subType = Auditing.SubType.DELETED)
-    public void delete(@Audited.Id long id) {
-        bookRepository.delete(id);
+    public void delete(long id) {
+        bookPersistenceGatewayOutputPort.delete(id);
     }
 }

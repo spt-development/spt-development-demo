@@ -1,7 +1,7 @@
-package com.spt.development.demo.infrastructure.adapter.repository;
+package com.spt.development.demo.infrastructure.adapter.db.repository;
 
 import com.spt.development.audit.spring.AuditEvent;
-import com.spt.development.demo.infrastructure.adapter.dao.AuditDao;
+import com.spt.development.demo.infrastructure.adapter.db.dao.AuditDao;
 import lombok.AllArgsConstructor;
 import lombok.NonNull;
 import org.springframework.stereotype.Repository;

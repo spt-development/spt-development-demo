@@ -2,7 +2,7 @@ package com.spt.development.demo.infrastructure.adapter.jms;
 
 import com.spt.development.audit.spring.AuditEvent;
 import com.spt.development.demo.infrastructure.config.JmsConfig;
-import com.spt.development.demo.infrastructure.adapter.repository.AuditRepository;
+import com.spt.development.demo.infrastructure.adapter.db.repository.AuditRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.jms.support.JmsHeaders;

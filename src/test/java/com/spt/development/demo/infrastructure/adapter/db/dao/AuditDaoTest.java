@@ -1,6 +1,7 @@
-package com.spt.development.demo.infrastructure.adapter.dao;
+package com.spt.development.demo.infrastructure.adapter.db.dao;
 
 import com.spt.development.audit.spring.AuditEvent;
+import com.spt.development.demo.infrastructure.adapter.db.dao.AuditDao;
 import org.apache.commons.collections4.MapUtils;
 import org.apache.commons.collections4.keyvalue.DefaultMapEntry;
 import org.junit.jupiter.api.Test;

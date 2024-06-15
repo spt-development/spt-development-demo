@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static com.spt.development.audit.spring.util.HttpRequestUtils.getClientIpAddress;
-import static com.spt.development.demo.infrastructure.util.Constants.Auditing;
+import static com.spt.development.demo.infrastructure.adapter.util.Constants.Auditing;
 import static org.springframework.boot.actuate.security.AuthenticationAuditListener.AUTHENTICATION_FAILURE;
 import static org.springframework.boot.actuate.security.AuthenticationAuditListener.AUTHENTICATION_SUCCESS;
 

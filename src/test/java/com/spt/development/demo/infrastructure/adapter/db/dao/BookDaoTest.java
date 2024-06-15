@@ -1,5 +1,6 @@
-package com.spt.development.demo.infrastructure.adapter.dao;
+package com.spt.development.demo.infrastructure.adapter.db.dao;
 
+import com.spt.development.demo.infrastructure.adapter.db.dao.BookDao;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;

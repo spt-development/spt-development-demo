@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import com.spt.development.demo.core.model.Book;
-import com.spt.development.demo.infrastructure.adapter.repository.BookRepository;
+import com.spt.development.demo.infrastructure.adapter.db.repository.BookRepository;
 import com.spt.development.test.integration.HttpTestManager;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;

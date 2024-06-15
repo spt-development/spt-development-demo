@@ -1,6 +1,6 @@
-package com.spt.development.demo.infrastructure.adapter.repository;
+package com.spt.development.demo.infrastructure.adapter.db.repository;
 
-import com.spt.development.demo.infrastructure.adapter.dao.BookDao;
+import com.spt.development.demo.infrastructure.adapter.db.dao.BookDao;
 import com.spt.development.demo.core.model.Book;
 import lombok.AllArgsConstructor;
 import lombok.NonNull;
