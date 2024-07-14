@@ -17,6 +17,7 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
  * not depend on infrastructure.
  */
 class HexagonalArchitectureTest {
+    @SuppressWarnings("PMD.LooseCoupling")
     private final JavaClasses classes = new ClassFileImporter()
             .withImportOption(ImportOption.Predefined.DO_NOT_INCLUDE_TESTS)
             .importPackages("com.spt.development.demo");

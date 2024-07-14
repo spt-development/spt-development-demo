@@ -39,21 +39,28 @@
         <Bug pattern="EI_EXPOSE_REP2" />
     </Match>
 
-    <!-- Assignment of repository that is technically mutable, therefore no sensible workaround to avoid warning -->
+    <!-- Assignment of input port that is technically mutable, therefore no sensible workaround to avoid warning -->
+    <Match>
+        <Class name="com.spt.development.demo.infrastructure.adapter.rest.controller.BookController" />
+        <Method name="&lt;init&gt;"/>
+        <Bug pattern="EI_EXPOSE_REP2" />
+    </Match>
+
+    <!-- Assignment of output port that is technically mutable, therefore no sensible workaround to avoid warning -->
     <Match>
         <Class name="com.spt.development.demo.core.usecase.book.ManageBooksUseCase" />
         <Method name="&lt;init&gt;"/>
         <Bug pattern="EI_EXPOSE_REP2" />
     </Match>
 
-    <!-- Assignment of repository that is technically mutable, therefore no sensible workaround to avoid warning -->
+    <!-- Assignment of dao that is technically mutable, therefore no sensible workaround to avoid warning -->
     <Match>
         <Class name="com.spt.development.demo.infrastructure.adapter.db.repository.AuditRepository" />
         <Method name="&lt;init&gt;"/>
         <Bug pattern="EI_EXPOSE_REP2" />
     </Match>
 
-    <!-- Assignment of repository that is technically mutable, therefore no sensible workaround to avoid warning -->
+    <!-- Assignment of dao that is technically mutable, therefore no sensible workaround to avoid warning -->
     <Match>
         <Class name="com.spt.development.demo.infrastructure.adapter.db.repository.BookRepository" />
         <Method name="&lt;init&gt;"/>
