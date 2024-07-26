@@ -48,7 +48,7 @@
 
     <!-- Assignment of output port that is technically mutable, therefore no sensible workaround to avoid warning -->
     <Match>
-        <Class name="com.spt.development.demo.core.usecase.book.ManageBooksUseCase" />
+        <Class name="com.spt.development.demo.core.application.usecase.book.ManageBooksUseCase" />
         <Method name="&lt;init&gt;"/>
         <Bug pattern="EI_EXPOSE_REP2" />
     </Match>

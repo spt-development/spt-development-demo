@@ -1,7 +1,7 @@
-package com.spt.development.demo.core.usecase.book;
+package com.spt.development.demo.core.application.usecase.book;
 
-import com.spt.development.demo.core.model.Book;
-import com.spt.development.demo.core.port.persistence.BookPersistenceGatewayOutputPort;
+import com.spt.development.demo.core.domain.Book;
+import com.spt.development.demo.core.application.port.persistence.BookPersistenceGatewayOutputPort;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import lombok.NonNull;

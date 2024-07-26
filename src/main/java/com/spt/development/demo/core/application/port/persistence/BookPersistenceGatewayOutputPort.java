@@ -1,6 +1,6 @@
-package com.spt.development.demo.core.port.persistence;
+package com.spt.development.demo.core.application.port.persistence;
 
-import com.spt.development.demo.core.model.Book;
+import com.spt.development.demo.core.domain.Book;
 import lombok.NonNull;
 
 import java.util.List;

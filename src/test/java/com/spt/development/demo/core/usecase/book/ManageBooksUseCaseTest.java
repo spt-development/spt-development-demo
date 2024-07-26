@@ -1,7 +1,8 @@
 package com.spt.development.demo.core.usecase.book;
 
-import com.spt.development.demo.core.model.Book;
-import com.spt.development.demo.core.port.persistence.BookPersistenceGatewayOutputPort;
+import com.spt.development.demo.core.application.usecase.book.ManageBooksUseCase;
+import com.spt.development.demo.core.domain.Book;
+import com.spt.development.demo.core.application.port.persistence.BookPersistenceGatewayOutputPort;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.test.util.ReflectionTestUtils;

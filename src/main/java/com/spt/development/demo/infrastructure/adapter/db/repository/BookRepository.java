@@ -1,7 +1,7 @@
 package com.spt.development.demo.infrastructure.adapter.db.repository;
 
 import com.spt.development.demo.infrastructure.adapter.db.dao.BookDao;
-import com.spt.development.demo.core.model.Book;
+import com.spt.development.demo.core.domain.Book;
 import lombok.AllArgsConstructor;
 import lombok.NonNull;
 import org.springframework.stereotype.Repository;

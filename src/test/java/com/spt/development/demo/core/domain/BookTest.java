@@ -1,4 +1,4 @@
-package com.spt.development.demo.core.model;
+package com.spt.development.demo.core.domain;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
