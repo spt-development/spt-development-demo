@@ -1,6 +1,6 @@
 package com.spt.development.demo.infrastructure.adapter.db.dao;
 
-import com.spt.development.demo.core.model.Book;
+import com.spt.development.demo.core.domain.Book;
 import jakarta.annotation.PostConstruct;
 import lombok.NonNull;
 import org.springframework.dao.EmptyResultDataAccessException;

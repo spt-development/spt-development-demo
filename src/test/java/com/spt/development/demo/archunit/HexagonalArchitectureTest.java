@@ -32,6 +32,8 @@ class HexagonalArchitectureTest {
             "lombok..");
 
     private final DescribedPredicate<JavaClass> areCore = resideInAnyPackage("com.spt.development.demo.core..");
+    private final DescribedPredicate<JavaClass> areApplication = resideInAnyPackage("com.spt.development.demo.core.application..");
+    private final DescribedPredicate<JavaClass> areDomain = resideInAnyPackage("com.spt.development.demo.core.domain..");
 
     private final DescribedPredicate<JavaClass> areInfrastructure = resideInAnyPackage("com.spt.development.demo.infrastructure..");
 
@@ -42,6 +44,24 @@ class HexagonalArchitectureTest {
                 .should()
                 .dependOnClassesThat(areInfrastructure)
                 .check(classes);
+    }
+
+    @Test
+    void domain_should_not_depend_on_application() {
+        noClasses()
+            .that(areDomain)
+            .should()
+            .dependOnClassesThat(areApplication)
+            .check(classes);
+    }
+
+    @Test
+    void domain_should_only_depend_on_itself_and_standard_classes() {
+        classes()
+            .that(areDomain)
+            .should()
+            .onlyDependOnClassesThat(areDomain.or(areStandard))
+            .check(classes);
     }
 
     @Test

@@ -1,4 +1,4 @@
-package com.spt.development.demo.core.model;
+package com.spt.development.demo.core.domain;
 
 import lombok.Builder;
 import lombok.Value;

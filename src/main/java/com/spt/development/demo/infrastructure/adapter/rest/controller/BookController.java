@@ -1,7 +1,7 @@
 package com.spt.development.demo.infrastructure.adapter.rest.controller;
 
-import com.spt.development.demo.core.model.Book;
-import com.spt.development.demo.core.usecase.book.ManageBooksInputPort;
+import com.spt.development.demo.core.domain.Book;
+import com.spt.development.demo.core.application.usecase.book.ManageBooksInputPort;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

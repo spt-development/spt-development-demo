@@ -1,8 +1,8 @@
 package com.spt.development.demo.infrastructure.adapter.db;
 
 import com.spt.development.audit.spring.Audited;
-import com.spt.development.demo.core.model.Book;
-import com.spt.development.demo.core.port.persistence.BookPersistenceGatewayOutputPort;
+import com.spt.development.demo.core.domain.Book;
+import com.spt.development.demo.core.application.port.persistence.BookPersistenceGatewayOutputPort;
 import com.spt.development.demo.infrastructure.adapter.db.repository.BookRepository;
 import com.spt.development.demo.infrastructure.adapter.util.Constants;
 import lombok.AllArgsConstructor;

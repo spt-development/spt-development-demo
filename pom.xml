@@ -40,14 +40,14 @@
 		<!-- Test dependency versions -->
 		<archunit.version>1.3.0</archunit.version>
 		<awaitility.version>4.2.1</awaitility.version>
-		<cucumber.version>7.18.0</cucumber.version>
+		<cucumber.version>7.18.1</cucumber.version>
 		<junit-platform.version>1.10.3</junit-platform.version>
 		<spt-development-test.version>3.1.8</spt-development-test.version>
-		<testcontainers.version>1.19.8</testcontainers.version>
+		<testcontainers.version>1.20.0</testcontainers.version>
 
 		<!-- Plugin versions -->
 		<checkstyle-maven-plugin.version>3.4.0</checkstyle-maven-plugin.version>
-		<dependency-check-maven.version>10.0.2</dependency-check-maven.version>
+		<dependency-check-maven.version>10.0.3</dependency-check-maven.version>
 		<jacoco-maven-plugin.version>0.8.12</jacoco-maven-plugin.version>
 		<license-maven-plugin.version>2.4.0</license-maven-plugin.version>
 		<maven-jxr-plugin.version>3.4.0</maven-jxr-plugin.version>
@@ -61,7 +61,7 @@
 		<findbugs-slf4j-bug-pattern.version>1.5.0</findbugs-slf4j-bug-pattern.version>
 		<findbugs-sec-bug-pattern.version>1.12.0</findbugs-sec-bug-pattern.version>
 		<pitest-junit5-plugin.version>1.2.1</pitest-junit5-plugin.version>
-		<pmd.version>7.3.0</pmd.version>
+		<pmd.version>7.4.0</pmd.version>
 	</properties>
 
 	<dependencyManagement>
