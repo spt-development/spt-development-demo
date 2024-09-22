@@ -38,20 +38,20 @@ jobs:
       - name: Run Maven - JDK 21
         run: ./mvnw clean verify -B
 
-      - name: Set up JDK 22
+      - name: Set up JDK 23
         uses: oracle-actions/setup-java@v1
         with:
           website: jdk.java.net
-          release: 22
+          release: 23
 
-      - name: Run Maven - JDK 22
+      - name: Run Maven - JDK 23
         run: ./mvnw clean verify -Pall-quality-gates -B
 
-      - name: Set up JDK 22 (MDC Disabled)
+      - name: Set up JDK 23 (MDC Disabled)
         uses: oracle-actions/setup-java@v1
         with:
           website: jdk.java.net
-          release: 22
+          release: 23
 
       - name: Run Maven - MDC disabled
         run: ./mvnw clean verify -Dspring.profiles.active=mdc-disabled -Pall-quality-gates -B
