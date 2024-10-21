@@ -10,7 +10,7 @@ services:
     ports:
       - "5432"
 
-  artemis:
+  activemq:
     image: apache/activemq-classic:6.1.0
     ports:
       - "61616"
