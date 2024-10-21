@@ -59,7 +59,8 @@ through the use of environment variables to point at a postgres database running
 
 ```shell
 $ SPRING_DATASOURCE_URL=jdbc:postgresql://127.0.0.1:59314/spt-recruitment-demo \
-  SPRING_DATASOURCE_USERNAME=postgres SPRING_DATASOURCE_PASSWORD=p@ssw0rd \
+  SPRING_DATASOURCE_USERNAME=postgres \
+  SPRING_DATASOURCE_PASSWORD=p@ssw0rd \
   SPRING_ACTIVEMQ_BROKER_URL=tcp://localhost:59313 \
   java -jar target/spt-development-demo-0.0.1-SNAPSHOT.jar 
 ```
@@ -87,3 +88,19 @@ $ curl -v -u bob:password123! http://localhost:8080/api/v1.0/books/4
 ```shell
 $ curl -v -u bob:password123! -X DELETE http://localhost:8080/api/v1.0/books/4
 ```
+Running the demo in docker
+==========================
+
+There are multiple ways to [build a docker image](https://www.baeldung.com/spring-boot-docker-images) for Spring Boot 
+applications. The simplest way is to use Buildpacks.
+
+```shell
+$ ./mvnw spring-boot:build-image
+```
+The [docker-compose.service.yml](./docker-compose.service.yml) can then be used to run the image along with 
+[docker-compose.yml](./docker-compose.yml) to start up Postgres and ActiveMQ.
+
+```shell
+$ docker compose -f docker-compose.yml -f docker-compose.service.yml up -d
+```
+The cURL commands above can again be used to test the API.
