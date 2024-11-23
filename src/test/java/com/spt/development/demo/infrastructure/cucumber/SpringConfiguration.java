@@ -15,10 +15,10 @@ import org.testcontainers.utility.DockerImageName;
 @CucumberContextConfiguration
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class SpringConfiguration {
-    private static final String POSTGRES_TAG = "16.3-alpine3.20";
+    private static final String POSTGRES_TAG = "17.2-alpine3.20";
 
     private static final String ACTIVEMQ_IMAGE = "apache/activemq-classic";
-    private static final String ACTIVEMQ_TAG = "6.1.0";
+    private static final String ACTIVEMQ_TAG = "6.1.2";
 
     @ServiceConnection
     public static PostgreSQLContainer<?> postgresDB =

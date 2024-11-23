@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   db:
-    image: postgres:16.3-alpine3.20
+    image: postgres:17.2-alpine3.20
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: p@ssw0rd
@@ -11,6 +11,6 @@ services:
       - "5432"
 
   activemq:
-    image: apache/activemq-classic:6.1.0
+    image: apache/activemq-classic:6.1.2
     ports:
       - "61616"
