@@ -10,3 +10,4 @@ services:
       SPRING_ACTIVEMQ_BROKER_URL: tcp://spt-development-demo-activemq-1:61616
     ports:
       - "8080:8080"
+      - "8081:8081"

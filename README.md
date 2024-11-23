@@ -88,6 +88,12 @@ $ curl -v -u bob:password123! http://localhost:8080/api/v1.0/books/4
 ```shell
 $ curl -v -u bob:password123! -X DELETE http://localhost:8080/api/v1.0/books/4
 ```
+Additionally, the Actuator web endpoints have been enabled on port 8081 and can be access unauthorized. For example:
+
+```shell
+$ curl -v http://localhost:8081/actuator/health
+```
+
 Running the demo in docker
 ==========================
 

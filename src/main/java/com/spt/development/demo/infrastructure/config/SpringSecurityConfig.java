@@ -1,5 +1,6 @@
 package com.spt.development.demo.infrastructure.config;
 
+import org.springframework.boot.actuate.autoconfigure.security.servlet.EndpointRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -35,7 +36,13 @@ public class SpringSecurityConfig {
             .csrf(AbstractHttpConfigurer::disable)
             .formLogin(AbstractHttpConfigurer::disable)
             .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-            .authorizeHttpRequests(ar -> ar.anyRequest().authenticated())
+            .authorizeHttpRequests(
+                // Permit access to all Actuator endpoints - access to Management port should be restricted
+                ar -> ar.requestMatchers(EndpointRequest.toAnyEndpoint())
+                            .permitAll()
+                        .anyRequest()
+                            .authenticated()
+            )
             .httpBasic(withDefaults());
 
         return http.build();
