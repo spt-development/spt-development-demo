@@ -58,10 +58,10 @@ Alternatively, and more akin to how you would run the application in production,
 through the use of environment variables to point at a postgres database running in Docker.
 
 ```shell
-$ SPRING_DATASOURCE_URL=jdbc:postgresql://127.0.0.1:59314/spt-recruitment-demo \
+$ SPRING_DATASOURCE_URL=jdbc:postgresql://127.0.0.1:5432/spt-development-demo \
   SPRING_DATASOURCE_USERNAME=postgres \
   SPRING_DATASOURCE_PASSWORD=p@ssw0rd \
-  SPRING_ACTIVEMQ_BROKER_URL=tcp://localhost:59313 \
+  SPRING_ACTIVEMQ_BROKER_URL=tcp://localhost:61616 \
   java -jar target/spt-development-demo-0.0.1-SNAPSHOT.jar 
 ```
 
@@ -88,10 +88,14 @@ $ curl -v -u bob:password123! http://localhost:8080/api/v1.0/books/4
 ```shell
 $ curl -v -u bob:password123! -X DELETE http://localhost:8080/api/v1.0/books/4
 ```
-Additionally, the Actuator web endpoints have been enabled on port 8081 and can be access unauthorized. For example:
+Additionally, the Actuator web endpoints have been enabled on port 8081 and can be accessed unauthorized. For example:
 
 ```shell
 $ curl -v http://localhost:8081/actuator/health
+```
+or
+```shell
+$ curl -v http://localhost:8081/actuator/info
 ```
 
 Running the demo in docker

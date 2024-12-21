@@ -1,10 +1,8 @@
-version: '3.7'
-
 services:
   api:
     image: docker.io/library/spt-development-demo:0.0.1-SNAPSHOT
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://spt-development-demo-db-1:5432/spt-recruitment-demo
+      SPRING_DATASOURCE_URL: jdbc:postgresql://spt-development-demo-db-1:5432/spt-development-demo
       SPRING_DATASOURCE_USERNAME: postgres
       SPRING_DATASOURCE_PASSWORD: p@ssw0rd
       SPRING_ACTIVEMQ_BROKER_URL: tcp://spt-development-demo-activemq-1:61616
