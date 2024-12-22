@@ -32,6 +32,7 @@
 		<!-- Dependency versions -->
 		<commons-collections.version>4.4</commons-collections.version>
 		<findbugs-jsr305.version>3.0.2</findbugs-jsr305.version>
+		<opentelemtry-instrumentation.version>2.10.0</opentelemtry-instrumentation.version>
 		<spt-development-audit-spring-boot.version>3.4.1</spt-development-audit-spring-boot.version>
 		<spt-development-cid-jms-spring-boot.version>3.4.1</spt-development-cid-jms-spring-boot.version>
 		<spt-development-cid-web-spring-boot.version>3.4.1</spt-development-cid-web-spring-boot.version>
@@ -66,6 +67,15 @@
 
 	<dependencyManagement>
 		<dependencies>
+			<!-- BOMs -->
+			<dependency>
+				<groupId>io.opentelemetry.instrumentation</groupId>
+				<artifactId>opentelemetry-instrumentation-bom</artifactId>
+				<version>${opentelemtry-instrumentation.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
 			<!-- Test BOMs -->
 			<dependency>
 				<groupId>io.cucumber</groupId>
@@ -176,6 +186,10 @@
 		</dependency>
 
 		<!-- Third party dependencies -->
+		<dependency>
+			<groupId>io.opentelemetry.instrumentation</groupId>
+			<artifactId>opentelemetry-spring-boot-starter</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-collections4</artifactId>

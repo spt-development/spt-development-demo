@@ -16,10 +16,16 @@ services:
   # TODO: How to import this automatically: https://grafana.com/grafana/dashboards/19004-spring-boot-statistics/
   # or a better one, and/or add a custom one for some custom metrics
   # TODO: Add some custom metrics
-  # TODO: See the "red" dashboard, it tells you how to set up hava app for it to work
   # TODO: Get the rest of this working: https://tpbabparn.medium.com/spring-boot-3-3-opentelemetry-agent-with-otel-lgtm-c9ecb100998e
-  # TODO: May need to add opentelemetry-api dependency back in
+  #       - JVM Overview dashboard is missing data
+  #       - Spring Boot statistics dashboard is good, but needs the application and instance etc setting so that it could be filtered
+  #           - See above link OTEL_RESOURCE_ATTRIBUTES
+  #       - Spring Boot observability dashboard is not showing logs
+  #           - Think this is because they are not in the opentel format (micrometer tracing would probably fix this)
   # TODO: Need to update README as well
+  # TODO: Update docker-compose.service.yml environment with settings for grafana integration
+  # TODO: Can I get correlation ID to appear in here: http://localhost:3000/a/grafana-lokiexplore-app/explore?patterns=%5B%5D&var-primary_label=service_name%7C%3D~%7C.%2B&from=now-15m&to=now&var-ds=loki&var-filters=&var-fields=&var-levels=&var-metadata=&var-patterns=&var-lineFilter=&refresh=&var-filters_replica=
+  # TODO: Consider setting up some alerts
   lgtm:
     image: grafana/otel-lgtm:0.8.1
     ports:

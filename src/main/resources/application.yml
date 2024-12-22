@@ -24,19 +24,29 @@ management:
       enabled: true
     readinessstate:
       enabled: true
+  otlp:
+    metrics:
+      export:
+        # Most of the dashboards available to import use seconds
+        base-time-unit: seconds
+        step: 10s
   server:
     port: 8081
 
-#otel:
-#  exporter:
-#    otlp:
-#      protocol: grpc
-#      endpoint: http://spt-development-demo-lgtm-1:4317
-#  metric:
-#    export:
-#      interval: 500
-#  resource:
-#    attributes: service.name=spt-development-demo,service.instance.id=spt-development-demo,env=dev
+otel:
+  bsp:
+    schedule:
+      delay: 500
+  exporter:
+    otlp:
+      metrics:
+        default:
+          histogram:
+            # Required for RED Metrics (native) dashboard
+            aggregation: BASE2_EXPONENTIAL_BUCKET_HISTOGRAM
+  metric:
+    export:
+      interval: 500
 
 spt:
   audit:
