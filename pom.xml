@@ -141,6 +141,12 @@
 			<!-- Version defined in parent dependencyManagement section -->
 		</dependency>
 		<dependency>
+			<groupId>io.micrometer</groupId>
+			<artifactId>micrometer-registry-otlp</artifactId>
+			<scope>runtime</scope>
+			<!-- Version defined in parent dependencyManagement section -->
+		</dependency>
+		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<scope>runtime</scope>

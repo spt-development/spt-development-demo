@@ -5,6 +5,10 @@ spring:
     virtual:
       enabled: true
 
+logging:
+  pattern:
+    console: -%clr(%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %replace([%X{cid}] ){'\[\] ', ''}%replace(%replace(%msg){'\r', '\\r'}){'\n', '\\n'}%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}
+
 management:
   endpoint:
     health:
@@ -23,9 +27,16 @@ management:
   server:
     port: 8081
 
-logging:
-  pattern:
-    console: -%clr(%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %replace([%X{cid}] ){'\[\] ', ''}%replace(%replace(%msg){'\r', '\\r'}){'\n', '\\n'}%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}
+#otel:
+#  exporter:
+#    otlp:
+#      protocol: grpc
+#      endpoint: http://spt-development-demo-lgtm-1:4317
+#  metric:
+#    export:
+#      interval: 500
+#  resource:
+#    attributes: service.name=spt-development-demo,service.instance.id=spt-development-demo,env=dev
 
 spt:
   audit:

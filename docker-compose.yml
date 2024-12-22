@@ -12,3 +12,17 @@ services:
     image: apache/activemq-classic:6.1.2
     ports:
       - "61616:61616"
+
+  # TODO: How to import this automatically: https://grafana.com/grafana/dashboards/19004-spring-boot-statistics/
+  # or a better one, and/or add a custom one for some custom metrics
+  # TODO: Add some custom metrics
+  # TODO: See the "red" dashboard, it tells you how to set up hava app for it to work
+  # TODO: Get the rest of this working: https://tpbabparn.medium.com/spring-boot-3-3-opentelemetry-agent-with-otel-lgtm-c9ecb100998e
+  # TODO: May need to add opentelemetry-api dependency back in
+  # TODO: Need to update README as well
+  lgtm:
+    image: grafana/otel-lgtm:0.8.1
+    ports:
+      - "4317:4317"
+      - "4318:4318"
+      - "3000:3000"
