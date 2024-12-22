@@ -1,0 +1,21 @@
+management:
+  otlp:
+    logging:
+      export:
+        enabled: false
+    metrics:
+      export:
+        enabled: false
+    tracing:
+      export:
+        enabled: false
+
+otel:
+  metric:
+    export:
+      # Set OTEL export interval to one hour, effectively disabling while the tests run
+      interval: 3600000
+  bsp:
+    schedule:
+      # Set batch span export delay to one hour, effectively disabling while the tests run
+      delay: 3600000

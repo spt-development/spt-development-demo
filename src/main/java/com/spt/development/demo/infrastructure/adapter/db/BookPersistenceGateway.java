@@ -18,7 +18,7 @@ import java.util.Optional;
 @AllArgsConstructor
 public class BookPersistenceGateway implements BookPersistenceGatewayOutputPort {
     // NOTE. Having a gateway that delegates to a repository for this simple model is clearly overkill, but just serves to prove logging
-    // for classes annotated with @Service annd a convenient place to include the auditing. Auditing could instead have been added to the
+    // for classes annotated with @Service and a convenient place to include the auditing. Auditing could instead have been added to the
     // controllers
     private final BookRepository bookRepository;
 

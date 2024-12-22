@@ -32,6 +32,7 @@
 		<!-- Dependency versions -->
 		<commons-collections.version>4.4</commons-collections.version>
 		<findbugs-jsr305.version>3.0.2</findbugs-jsr305.version>
+		<opentelemtry-instrumentation.version>2.10.0</opentelemtry-instrumentation.version>
 		<spt-development-audit-spring-boot.version>3.4.1</spt-development-audit-spring-boot.version>
 		<spt-development-cid-jms-spring-boot.version>3.4.1</spt-development-cid-jms-spring-boot.version>
 		<spt-development-cid-web-spring-boot.version>3.4.1</spt-development-cid-web-spring-boot.version>
@@ -66,6 +67,15 @@
 
 	<dependencyManagement>
 		<dependencies>
+			<!-- BOMs -->
+			<dependency>
+				<groupId>io.opentelemetry.instrumentation</groupId>
+				<artifactId>opentelemetry-instrumentation-bom</artifactId>
+				<version>${opentelemtry-instrumentation.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
 			<!-- Test BOMs -->
 			<dependency>
 				<groupId>io.cucumber</groupId>
@@ -141,6 +151,12 @@
 			<!-- Version defined in parent dependencyManagement section -->
 		</dependency>
 		<dependency>
+			<groupId>io.micrometer</groupId>
+			<artifactId>micrometer-registry-otlp</artifactId>
+			<scope>runtime</scope>
+			<!-- Version defined in parent dependencyManagement section -->
+		</dependency>
+		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<scope>runtime</scope>
@@ -170,6 +186,14 @@
 		</dependency>
 
 		<!-- Third party dependencies -->
+		<!--
+		     Using Spring Boot starter, rather than java agent for ease of use, at the cost of some features:
+		     https://opentelemetry.io/docs/zero-code/java/spring-boot-starter/
+		  -->
+		<dependency>
+			<groupId>io.opentelemetry.instrumentation</groupId>
+			<artifactId>opentelemetry-spring-boot-starter</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-collections4</artifactId>
@@ -378,7 +402,7 @@
                                  Only include false positives and starters that can't be resolved by setting the
                                  scope to runtime.
                               -->
-							<ignoredUnusedDeclaredDependencies>com.spt-development:*-spring-boot-starter::,org.springframework.boot:spring-boot-starter-*::,org.springframework.boot:spring-boot-docker-compose</ignoredUnusedDeclaredDependencies>
+							<ignoredUnusedDeclaredDependencies>com.spt-development:*-spring-boot-starter::,io.opentelemetry.instrumentation:opentelemetry-spring-boot-starter,org.springframework.boot:spring-boot-starter-*::,org.springframework.boot:spring-boot-docker-compose</ignoredUnusedDeclaredDependencies>
 							<!--
                                  Ignoring all used undeclared dependencies as it goes against the design
                                  of Spring Boot and results in a much larger than otherwise necessary pom.
