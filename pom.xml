@@ -186,6 +186,10 @@
 		</dependency>
 
 		<!-- Third party dependencies -->
+		<!--
+		     Using Spring Boot starter, rather than java agent for ease of use, at the cost of some features:
+		     https://opentelemetry.io/docs/zero-code/java/spring-boot-starter/
+		  -->
 		<dependency>
 			<groupId>io.opentelemetry.instrumentation</groupId>
 			<artifactId>opentelemetry-spring-boot-starter</artifactId>
@@ -275,6 +279,12 @@
 		<dependency>
 			<groupId>org.testcontainers</groupId>
 			<artifactId>activemq</artifactId>
+			<scope>test</scope>
+			<!-- Version defined in testcontainers bom, imported in dependencyManagement section -->
+		</dependency>
+		<dependency>
+			<groupId>org.testcontainers</groupId>
+			<artifactId>grafana</artifactId>
 			<scope>test</scope>
 			<!-- Version defined in testcontainers bom, imported in dependencyManagement section -->
 		</dependency>
@@ -398,7 +408,7 @@
                                  Only include false positives and starters that can't be resolved by setting the
                                  scope to runtime.
                               -->
-							<ignoredUnusedDeclaredDependencies>com.spt-development:*-spring-boot-starter::,org.springframework.boot:spring-boot-starter-*::,org.springframework.boot:spring-boot-docker-compose</ignoredUnusedDeclaredDependencies>
+							<ignoredUnusedDeclaredDependencies>com.spt-development:*-spring-boot-starter::,io.opentelemetry.instrumentation:opentelemetry-spring-boot-starter,org.springframework.boot:spring-boot-starter-*::,org.springframework.boot:spring-boot-docker-compose</ignoredUnusedDeclaredDependencies>
 							<!--
                                  Ignoring all used undeclared dependencies as it goes against the design
                                  of Spring Boot and results in a much larger than otherwise necessary pom.

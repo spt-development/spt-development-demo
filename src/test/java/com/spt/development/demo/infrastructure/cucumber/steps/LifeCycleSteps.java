@@ -27,6 +27,7 @@ public class LifeCycleSteps {
     @BeforeAll
     public static void fixtureSetUp() {
         SpringConfiguration.activeMq.start();
+        SpringConfiguration.lgtmStackContainer.start();
         SpringConfiguration.postgresDB.start();
     }
 

@@ -10,22 +10,31 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Scope;
 import org.testcontainers.activemq.ActiveMQContainer;
 import org.testcontainers.containers.PostgreSQLContainer;
+import org.testcontainers.grafana.LgtmStackContainer;
 import org.testcontainers.utility.DockerImageName;
 
 @CucumberContextConfiguration
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class SpringConfiguration {
+    private static final String ACTIVEMQ_IMAGE = "apache/activemq-classic";
+    private static final String ACTIVEMQ_TAG = "6.1.4";
+
+    private static final String LGTM_IMAGE_NAME = "grafana/otel-lgtm";
+    private static final String LGTM_TAG = "0.8.1";
+
     private static final String POSTGRES_TAG = "17.2-alpine3.20";
 
-    private static final String ACTIVEMQ_IMAGE = "apache/activemq-classic";
-    private static final String ACTIVEMQ_TAG = "6.1.2";
+    @ServiceConnection
+    public static ActiveMQContainer activeMq =
+        new ActiveMQContainer(DockerImageName.parse(ACTIVEMQ_IMAGE).withTag(ACTIVEMQ_TAG));
+
+    @ServiceConnection
+    public static LgtmStackContainer lgtmStackContainer =
+        new LgtmStackContainer(DockerImageName.parse(LGTM_IMAGE_NAME).withTag(LGTM_TAG));
 
     @ServiceConnection
     public static PostgreSQLContainer<?> postgresDB =
         new PostgreSQLContainer<>(DockerImageName.parse(PostgreSQLContainer.IMAGE).withTag(POSTGRES_TAG));
-
-    @ServiceConnection
-    public static ActiveMQContainer activeMq = new ActiveMQContainer(DockerImageName.parse(ACTIVEMQ_IMAGE).withTag(ACTIVEMQ_TAG));
 
     @TestConfiguration
     public static class TestManagerConfig {
