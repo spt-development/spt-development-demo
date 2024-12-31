@@ -114,3 +114,21 @@ The [docker-compose.service.yml](./docker-compose.service.yml) can then be used 
 $ docker compose -f docker-compose.yml -f docker-compose.service.yml up -d
 ```
 The cURL commands above can again be used to test the API.
+
+Grafana
+=======
+
+Spring Boot 3.4.0 extended the Docker Compose support to support 
+[Grafana LGTM](https://grafana.com/blog/2024/03/13/an-opentelemetry-backend-in-a-docker-image-introducing-grafana/otel-lgtm/).
+
+This project's Docker Compose files have been updated to include Grafana LGTM and whether running the demo with the Spring Boot
+Maven plugin or with Docker Compose, Grafana can be accessed [here](http://localhost:3000/). The application will send metrics,
+logs and traces to Grafana which has been provisioned with the following dashboards for visualising this data:
+
+* JVM Overview
+* RED Metrics
+* Spring Boot 3.x Statistics
+* Spring Boot Observability
+
+**NOTE** As stated on the Grafana LGTM page, Grafana LGTM is not production ready and "is an open source backend for OpenTelemetry
+that’s intended for development, demo, and testing environments."

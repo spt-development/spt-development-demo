@@ -9,6 +9,17 @@ services:
       - "5432:5432"
 
   activemq:
-    image: apache/activemq-classic:6.1.2
+    image: apache/activemq-classic:6.1.4
     ports:
       - "61616:61616"
+
+  # TODO: Need to update README as well
+  # TODO: Update docker-compose.service.yml environment with settings for grafana integration
+  lgtm:
+    image: grafana/otel-lgtm:0.8.1
+    ports:
+      - "4317:4317"
+      - "4318:4318"
+      - "3000:3000"
+    volumes:
+      - "./grafana/dashboards:/otel-lgtm/grafana/conf/provisioning/dashboards"

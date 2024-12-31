@@ -1,0 +1,23 @@
+apiVersion: 1
+
+providers:
+  - name: 'RED Metrics (exponential/native histogram)'
+    type: file
+    options:
+      path: /otel-lgtm/grafana-dashboard-red-metrics-native.json
+      foldersFromFilesStructure: false
+  - name: 'JVM Metrics'
+    type: file
+    options:
+      path: /otel-lgtm/grafana-dashboard-jvm-metrics.json
+      foldersFromFilesStructure: false
+  - name: 'Spring Boot 3.x Statistics'
+    type: file
+    options:
+      path: /otel-lgtm/grafana/conf/provisioning/dashboards/spring-boot-3.x-statistics.json
+      foldersFromFilesStructure: false
+  - name: 'Spring Boot Observability'
+    type: file
+    options:
+      path: /otel-lgtm/grafana/conf/provisioning/dashboards/spring-boot-observability.json
+      foldersFromFilesStructure: false

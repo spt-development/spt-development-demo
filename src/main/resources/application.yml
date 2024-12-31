@@ -5,6 +5,10 @@ spring:
     virtual:
       enabled: true
 
+logging:
+  pattern:
+    console: -%clr(%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %replace([%X{cid}] ){'\[\] ', ''}%replace(%replace(%msg){'\r', '\\r'}){'\n', '\\n'}%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}
+
 management:
   endpoint:
     health:
@@ -20,12 +24,29 @@ management:
       enabled: true
     readinessstate:
       enabled: true
+  otlp:
+    metrics:
+      export:
+        # Most of the dashboards available to import use seconds
+        base-time-unit: seconds
+        step: 10s
   server:
     port: 8081
 
-logging:
-  pattern:
-    console: -%clr(%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %replace([%X{cid}] ){'\[\] ', ''}%replace(%replace(%msg){'\r', '\\r'}){'\n', '\\n'}%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}
+otel:
+  bsp:
+    schedule:
+      delay: 500
+  exporter:
+    otlp:
+      metrics:
+        default:
+          histogram:
+            # Required for RED Metrics (native) dashboard
+            aggregation: BASE2_EXPONENTIAL_BUCKET_HISTOGRAM
+  metric:
+    export:
+      interval: 500
 
 spt:
   audit:
