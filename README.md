@@ -53,15 +53,20 @@ This will also use the [docker-compose.yml](./docker-compose.yml) file to start 
 through the user of Spring Boot's 
 [docker compose support](https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.docker-compose).
 
-Alternatively, and more akin to how you would run the application in production, you can run the application with java overriding the
-`spring.datasource.*` and `spring.activemq.*` properties to point at an already running postgres database. The example below does this 
-through the use of environment variables to point at a postgres database running in Docker.
+Alternatively, and more akin to how you would run the application in production, you can run the application with java overriding
+the `spring.datasource.*`, `spring.activemq.*` and `*.otlp.` properties to point at an already running Postgres database, 
+ActiveMQ instance and OpenTelemety endpoint respectively. The example below does this through the use of environment variables to
+point at a Postgres database etc, running in Docker.
 
 ```shell
 $ SPRING_DATASOURCE_URL=jdbc:postgresql://127.0.0.1:5432/spt-development-demo \
   SPRING_DATASOURCE_USERNAME=postgres \
   SPRING_DATASOURCE_PASSWORD=p@ssw0rd \
   SPRING_ACTIVEMQ_BROKER_URL=tcp://localhost:61616 \
+  MANAGEMENT_OTLP_METRICS_EXPORT_URL=http://localhost:4318/v1/metrics \
+  OTEL_EXPORTER_OTLP_LOGS_ENDPOINT=http://localhost:4318/v1/logs \
+  OTEL_EXPORTER_OTLP_METRICS_ENDPOINT=http://localhost:4318/v1/metrics \
+  OTEL_EXPORTER_OTLP_TRACES_ENDPOINT=http://localhost:4318/v1/traces \
   java -jar target/spt-development-demo-0.0.1-SNAPSHOT.jar 
 ```
 
