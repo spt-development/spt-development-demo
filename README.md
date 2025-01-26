@@ -121,7 +121,7 @@ $ docker compose -f docker-compose.yml -f docker-compose.service.yml up -d
 The cURL commands above can again be used to test the API.
 
 Grafana
-=======
+-------
 
 Spring Boot 3.4.0 extended the Docker Compose support to support 
 [Grafana LGTM](https://grafana.com/blog/2024/03/13/an-opentelemetry-backend-in-a-docker-image-introducing-grafana/otel-lgtm/).
