@@ -50,7 +50,7 @@ $ ./mvnw spring-boot:run
 ```
 
 This will also use the [docker-compose.yml](./docker-compose.yml) file to start up postgres and ActiveMQ in docker containers
-through the user of Spring Boot's 
+through the use of Spring Boot's 
 [docker compose support](https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.docker-compose).
 
 Alternatively, and more akin to how you would run the application in production, you can run the application with java overriding
